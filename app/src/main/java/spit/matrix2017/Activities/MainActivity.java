@@ -39,6 +39,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -71,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
     private static final long DRAWER_DELAY = 250;
     private static int NUM_PAGES = 3;
 
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mItemDatabaseReference;
+    private ValueEventListener mValueEventListener;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         else
             setContentView(R.layout.activity_main);
 
-        int[] images = {
+        /*int[] images = {
                 R.drawable.event_daniel_fernandes,
                 R.drawable.event_techshiksha,
                 R.drawable.event_ethical_hacking,
@@ -108,10 +117,12 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.event_lan_mafia,
                 R.drawable.event_mind_that_word,
 
-        };
+        };*/
 
-        for(int i: images)
+
+        /*for(int i: images)
             Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
+        */
 
         //ViewPager
         mCustomPagerAdapter = new CustomPagerAdapter(this);
@@ -129,7 +140,12 @@ public class MainActivity extends AppCompatActivity {
         };
         h.postDelayed(r, 5000);
 
+
         //instantiation
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
