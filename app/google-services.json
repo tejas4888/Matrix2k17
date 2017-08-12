@@ -1,27 +1,43 @@
 {
   "project_info": {
-    "project_number": "600218730464",
-    "firebase_url": "https://matrix2017-e9610.firebaseio.com",
-    "project_id": "matrix2017-e9610",
-    "storage_bucket": "matrix2017-e9610.appspot.com"
+    "project_number": "1097612880469",
+    "firebase_url": "https://matrix2k17-a4684.firebaseio.com",
+    "project_id": "matrix2k17-a4684",
+    "storage_bucket": "matrix2k17-a4684.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:600218730464:android:b57bcaf4e727ecde",
+        "mobilesdk_app_id": "1:1097612880469:android:b57bcaf4e727ecde",
         "android_client_info": {
           "package_name": "spit.matrix2017"
         }
       },
       "oauth_client": [
         {
-          "client_id": "600218730464-un43lgqe99qhhb6do0he9oocdo0181ov.apps.googleusercontent.com",
+          "client_id": "1097612880469-jomasckau0nmhjp3obvmev306l3nsjqa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "spit.matrix2017",
+            "certificate_hash": "9df023707dd7f49521f3eef6bf48a944d84e3c63"
+          }
+        },
+        {
+          "client_id": "1097612880469-1j2a2gr90j0qed2tnj3d0pdgg7cdbkts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "spit.matrix2017",
+            "certificate_hash": "0e861b3aef62f8144834f185d1d1c5245e17cf4b"
+          }
+        },
+        {
+          "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAzZmw1jNXAQOUOOV1ENdGVSHbfua7JToA"
+          "current_key": "AIzaSyAQwTkK6uUmtLhfURPOc8Z5dRrcP3IP8VU"
         }
       ],
       "services": {
@@ -32,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "600218730464-un43lgqe99qhhb6do0he9oocdo0181ov.apps.googleusercontent.com",
+              "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
