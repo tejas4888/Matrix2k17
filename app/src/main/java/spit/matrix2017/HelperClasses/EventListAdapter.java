@@ -17,11 +17,19 @@
 package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,13 +37,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.R;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyViewHolder> {
     private Context mContext;
     private List<Event> eventNames;
+    private Event event;
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView eventTitle;
         ImageView thumbnail;
         View background;
@@ -46,7 +56,43 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             background = view.findViewById(R.id.textView_background);
         }
+
+        @Override
+        public void onClick(View v) {
+            int position  =   getAdapterPosition();
+            event = eventNames.get(position);
+
+            Intent i = new Intent(v.getContext(), EventDetails.class);
+
+            i.putExtra("image",event.getPosterUrl());
+            i.putExtra("name", event.getName());
+            i.putExtra("description", event.getDescription());
+            i.putExtra("venue", event.getVenue());
+            i.putExtra("time", event.getTime());
+            i.putExtra("registration", event.getFees());
+            i.putExtra("prizes", event.getPrizeScheme());
+            i.putExtra("contact1name", event.getPocName1());
+            i.putExtra("contact1no", event.getPocNumber1());
+            i.putExtra("contact2name", event.getPocName2());
+            i.putExtra("contact2no", event.getPocNumber2());
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                ImageView poster = (ImageView)v.findViewById(R.id.thumbnail);
+                poster.setTransitionName("poster");
+                //Pair pair = new Pair<>(poster, ViewCompat.getTransitionName(poster));
+
+               // ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(v.getActivity(),pair);
+                //ActivityCompat.startActivity(getActivity(),i,optionsCompat.toBundle());
+
+
+            }
+            else{//Unknown//
+            }
+        }
     }
+
+
+
 
     public EventListAdapter(Context mContext, List<Event> eventNames) {
         this.mContext = mContext;
@@ -72,7 +118,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         Event eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
-        //Picasso.with(mContext).load(eventName.getImage()).resize(400, 400).centerCrop().into(holder.thumbnail);
+        Picasso.with(mContext).load(eventName.getPosterUrl()).resize(400, 400).centerCrop().into(holder.thumbnail);
 
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
@@ -83,11 +129,11 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
           //  holder.eventTitle.setTextColor(Color.WHITE);
         //}
 
-        /*if(position > lastPosition){
-            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
-            holder.itemView.startAnimation(animation);
-            lastPosition= position;
-        }*/
+       // if(position > lastPosition){
+         //   Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
+           // holder.itemView.startAnimation(animation);
+            //lastPosition= position;
+        //}
     }
 
     @Override
@@ -95,4 +141,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
     {
         return eventNames.size();
     }
+
+
+
 }

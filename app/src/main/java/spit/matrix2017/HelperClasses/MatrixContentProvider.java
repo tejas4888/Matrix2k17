@@ -34,9 +34,10 @@ import spit.matrix2017.R;
 
 import static android.R.attr.id;
 
-public class MatrixContentProvider extends ContentProvider {
+class MatrixContentProvider {
     //////////Database strings//////////
-    private static final String DB_NAME = "MatrixDB.sqlite";
+
+   /* private static final String DB_NAME = "MatrixDB.sqlite";
     private static final int DB_VERSION = 2;
 
     //////////Strings to help create the events table//////////
@@ -253,7 +254,7 @@ public class MatrixContentProvider extends ContentProvider {
          the respective value in the list
         */
 
-        {
+       /* {
             List<Event> list = new ArrayList<>();
 
             SQLiteDatabase db = getReadableDatabase();
@@ -306,4 +307,5 @@ public class MatrixContentProvider extends ContentProvider {
             return list;
         }
     }
+    */
 }

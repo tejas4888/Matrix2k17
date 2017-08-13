@@ -37,13 +37,13 @@ import android.widget.TextView;
 import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
-import spit.matrix2017.HelperClasses.MatrixContentProvider;
+//import spit.matrix2017.HelperClasses.MatrixContentProvider;
 import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.R;
 
 public class FavoritesFragment extends Fragment {
 
-    RecyclerView mRecyclerView;
+    /*RecyclerView mRecyclerView;
     MatrixContentProvider matrixContentProvider;
     MatrixContentProvider.MatrixDBConnectionHelper dbConnectionHelper;
     EventListAdapter eventListAdapter;
@@ -128,4 +128,5 @@ public class FavoritesFragment extends Fragment {
                 })
         );
     }
+    */
 }

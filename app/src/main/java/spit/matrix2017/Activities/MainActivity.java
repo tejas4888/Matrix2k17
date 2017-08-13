@@ -74,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private static final long DRAWER_DELAY = 250;
     private static int NUM_PAGES = 3;
 
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mItemDatabaseReference;
-    private ValueEventListener mValueEventListener;
+
 
 
 
@@ -143,8 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         //instantiation
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+
 
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);

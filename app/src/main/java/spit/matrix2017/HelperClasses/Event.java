@@ -22,11 +22,11 @@ import java.util.Date;
 public class Event {
 
     //////////Custom data type for events//////////
-    private String name, description, posterUrl, dates, time, venue, pocName1, pocName2, pocNumber1, pocNumber2;
+    private String name, description, posterUrl, dates, time, venue, pocName1, pocName2, pocNumber1, pocNumber2, prizeScheme;
     private int fees; //Calculated per person
     private ArrayList<Feedback> eventFeedbackList;
 
-    public Event(String name, String description, String posterUrl, String dates, String time, String venue, String pocName1, String pocName2, String pocNumber1, String pocNumber2, int fees, ArrayList<Feedback> eventFeedbackList) {
+    public Event(String name, String description, String posterUrl, String dates, String time, String venue, String pocName1, String pocName2, String pocNumber1, String pocNumber2, String prizeScheme, int fees, ArrayList<Feedback> eventFeedbackList) {
         this.name = name;
         this.description = description;
         this.posterUrl = posterUrl;
@@ -37,6 +37,7 @@ public class Event {
         this.pocName2 = pocName2;
         this.pocNumber1 = pocNumber1;
         this.pocNumber2 = pocNumber2;
+        this.prizeScheme = prizeScheme;
         this.fees = fees;
         this.eventFeedbackList = eventFeedbackList;
     }
@@ -79,6 +80,10 @@ public class Event {
 
     public String getPocNumber2() {
         return pocNumber2;
+    }
+
+    public String getPrizeScheme() {
+        return prizeScheme;
     }
 
     public int getFees() {

@@ -88,7 +88,7 @@ public class LoginPage extends AppCompatActivity {
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setProviders(AuthUI.GOOGLE_PROVIDER)
+                                    .setProviders(AuthUI.GOOGLE_PROVIDER).setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
                                     .build(),
                             RC_SIGN_IN);
                 }
