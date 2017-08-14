@@ -28,21 +28,18 @@
             </intent-filter>
         </service>
 
+        <!--
         <provider
             android:name=".HelperClasses.MatrixContentProvider"
             android:authorities="spit.matrix2017.provider"
             android:enabled="true"
             android:exported="false" />
+         -->
 
         <activity
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activities.EventDetails"
@@ -54,7 +51,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="spit.matrix2017.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Activities.LoginPage"></activity>
+        <activity android:name=".Activities.LoginPage"
+                  android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

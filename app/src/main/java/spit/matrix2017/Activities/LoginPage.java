@@ -14,11 +14,17 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import spit.matrix2017.HelperClasses.Event;
+import spit.matrix2017.HelperClasses.Feedback;
+import spit.matrix2017.HelperClasses.User;
 import spit.matrix2017.R;
 
 import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
@@ -27,14 +33,16 @@ public class LoginPage extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
+    private ValueEventListener mValueEventListener;
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseUser user;
+    FirebaseUser user;
 
     private String mUserName;
 
     private ArrayList admin, eventOrg;
+    private int i = 1;
 
     SharedPreferences.Editor userInfo;
     @Override
@@ -48,6 +56,7 @@ public class LoginPage extends AppCompatActivity {
         eventOrg = new ArrayList();
         eventOrg.add("sdfasd");// and so on
 
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("users");
@@ -57,27 +66,58 @@ public class LoginPage extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent i = new Intent(LoginPage.this,MainActivity.class);
 
                     // Code to save userdata
-
+                    String x = "Welcome " + user.getDisplayName() + " to the future";
+                    Toast.makeText(LoginPage.this, x ,Toast.LENGTH_SHORT).show();
                     userInfo = getSharedPreferences("userInfo",MODE_APPEND).edit();
-                    userInfo.putString("Name",user.getDisplayName());
-                    userInfo.putString("Email",user.getEmail());
-                    userInfo.putString("Profile",user.getPhotoUrl().toString());
+                    userInfo.putString("name",user.getDisplayName());
+                    userInfo.putString("email",user.getEmail());
+                    userInfo.putString("profile",user.getPhotoUrl().toString());
                     userInfo.putString("UID",user.getUid());
 
+                    final String type;
                     if(admin.contains(user.getEmail())){
-                        userInfo.putString("Type","Head");
+                        type = "Head";
                     }
                     else if(admin.contains(user.getEmail())) {
-                        userInfo.putString("Type","EventOrg");
+                        type = "Admin";
                     }
                     else{
-                        userInfo.putString("Type","Guest");
+                        type = "Guest";
                     }
+                    userInfo.putString("type",type);
                     userInfo.commit();
 
+                    final String UID = user.getUid();
+                    mValueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                String c_uid = (String) snapshot.child("uid").getValue();
+                                if(UID == c_uid){
+                                    i = 0;
+                                    Toast.makeText(LoginPage.this,"Already registered :)",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+
+                    mDatabaseReference.addValueEventListener(mValueEventListener);
+
+                    if(i == 1) {
+                        //mDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
+                                //user.getPhotoUrl().toString(), user.getUid(),
+                                //type));
+                    }
+
+                    Intent i = new Intent(LoginPage.this,MainActivity.class);
                     startActivity(i);
 
                 } else {
@@ -88,7 +128,8 @@ public class LoginPage extends AppCompatActivity {
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setProviders(AuthUI.GOOGLE_PROVIDER).setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
+                                    .setProviders(AuthUI.GOOGLE_PROVIDER,AuthUI.EMAIL_PROVIDER)
+                                    .setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
                                     .build(),
                             RC_SIGN_IN);
                 }
@@ -122,7 +163,8 @@ public class LoginPage extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
                 // Sign-in succeeded, set up the UI
-                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
+                //String x = "Signed In as" + user.getDisplayName().toString();
+                //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
 
             } else if (resultCode == RESULT_CANCELED) {
                 // Sign in was canceled by the user, finish the activity

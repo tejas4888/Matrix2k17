@@ -39,6 +39,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -350,6 +351,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_follow_snapchat:
                 uri = Uri.parse(getResources().getString(R.string.matrix_snap_link));
                 break;
+            case R.id.menu_sign_out:
+                FirebaseAuth fAuth = FirebaseAuth.getInstance();
+                fAuth.signOut();
+                Intent i = new Intent(this, LoginPage.class);
+                startActivity(i);
         }
 
         Intent i = new Intent(Intent.ACTION_VIEW, uri);

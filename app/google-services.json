@@ -15,15 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "1097612880469-jomasckau0nmhjp3obvmev306l3nsjqa.apps.googleusercontent.com",
+          "client_id": "1097612880469-s24ghmeg4mskqjuarefldet56das963a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "spit.matrix2017",
-            "certificate_hash": "9df023707dd7f49521f3eef6bf48a944d84e3c63"
+            "certificate_hash": "0d1aa60f0edaf574ec22e1ff407e233b65699df0"
           }
         },
         {
-          "client_id": "1097612880469-1j2a2gr90j0qed2tnj3d0pdgg7cdbkts.apps.googleusercontent.com",
+          "client_id": "1097612880469-eju4al7dpjas9t3hlaseg4u5uojms5be.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "spit.matrix2017",

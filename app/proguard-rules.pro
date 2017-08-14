@@ -16,3 +16,5 @@
 #   public *;
 #}
 -dontwarn com.squareup.picasso.**
+-keepattributes Signature
+-keepattributes *Annotation*
