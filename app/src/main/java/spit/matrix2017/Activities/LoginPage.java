@@ -74,7 +74,7 @@ public class LoginPage extends AppCompatActivity {
                         userInfo.putString("Type","EventOrg");
                     }
                     else{
-                        userInfo.putString("Type","EventOrg");
+                        userInfo.putString("Type","Guest");
                     }
                     userInfo.commit();
 
