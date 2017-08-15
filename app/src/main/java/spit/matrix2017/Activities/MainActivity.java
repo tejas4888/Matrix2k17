@@ -374,28 +374,6 @@ public class MainActivity extends AppCompatActivity {
                                     }, DRAWER_DELAY);
                                     break;
 
-                                case R.id.share_app_menuItem:
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Intent intent = new Intent();
-                                            intent.setAction(Intent.ACTION_SEND);
-                                            intent.putExtra(Intent.EXTRA_TEXT, "Check out the official app for Matrix 17!\n\n" + getResources().getString(R.string.playstore_link));
-                                            intent.setType("text/plain");
-                                            startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
-                                        }
-                                    }, DRAWER_DELAY);
-                                    return true;
-                                case R.id.rate_app_menuItem:
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
-                                            intent.setData(Uri.parse(getResources().getString(R.string.playstore_link)));
-                                            startActivity(intent);
-                                        }
-                                    }, DRAWER_DELAY);
-                                    return true;
                                 case R.id.about_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
