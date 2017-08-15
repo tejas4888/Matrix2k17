@@ -76,7 +76,7 @@ public class EventDetails
     CollapsingToolbarLayout collapsingToolbarLayout;
     CardView organizers_card,prizes_card,registration_card,venue_time_card;
     TextView hardcodedDate;
-
+    //Comment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
