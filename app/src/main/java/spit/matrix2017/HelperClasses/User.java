@@ -1,18 +1,18 @@
 package spit.matrix2017.HelperClasses;
 
-/**
- * Created by USER on 15-08-2017.
- */
 
 public class User {
-    String name,email,profile,UID,type;
+    private String name,email,profile,UID,type;
+    private String from;
 
-    public User(String name, String email, String profile, String UID, String type) {
+
+    public User(String name, String email, String profile, String UID, String type, String from) {
         this.name = name;
         this.email = email;
         this.profile = profile;
         this.UID = UID;
         this.type = type;
+        this.from = from;
     }
 
     public String getName() {
@@ -33,5 +33,9 @@ public class User {
 
     public String getType() {
         return type;
+    }
+
+    public String getFrom() {
+        return from;
     }
 }

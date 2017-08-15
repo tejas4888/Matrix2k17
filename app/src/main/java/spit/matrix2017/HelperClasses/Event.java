@@ -24,9 +24,8 @@ public class Event {
     //////////Custom data type for events//////////
     private String name, description, posterUrl, dates, time, venue, pocName1, pocName2, pocNumber1, pocNumber2, prizeScheme;
     private int fees; //Calculated per person
-    private ArrayList<Feedback> eventFeedbackList;
 
-    public Event(String name, String description, String posterUrl, String dates, String time, String venue, String pocName1, String pocName2, String pocNumber1, String pocNumber2, String prizeScheme, int fees, ArrayList<Feedback> eventFeedbackList) {
+    public Event(String name, String description, String posterUrl, String dates, String time, String venue, String pocName1, String pocName2, String pocNumber1, String pocNumber2, String prizeScheme, int fees) {
         this.name = name;
         this.description = description;
         this.posterUrl = posterUrl;
@@ -39,7 +38,6 @@ public class Event {
         this.pocNumber2 = pocNumber2;
         this.prizeScheme = prizeScheme;
         this.fees = fees;
-        this.eventFeedbackList = eventFeedbackList;
     }
 
     public String getName() {
@@ -90,7 +88,4 @@ public class Event {
         return fees;
     }
 
-    public ArrayList<Feedback> getEventFeedbackList() {
-        return eventFeedbackList;
-    }
 }

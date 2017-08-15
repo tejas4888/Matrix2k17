@@ -202,10 +202,9 @@ public class EventListFragment extends Fragment{
                         String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
                         String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
                         int fees = (int) snapshot.child("fees").getValue(); //Calculated per person
-                        ArrayList<Feedback> eventFeedbackList = (ArrayList<Feedback>) snapshot.child("eventFeedbackList").getValue();
 
                         mEvents.add(new Event(name,description,posterUrl,dates,time,venue,pocName1,
-                                                pocName2,pocNumber1,pocNumber2,prizeScheme,fees,eventFeedbackList));
+                                                pocName2,pocNumber1,pocNumber2,prizeScheme,fees));
                     }
                     updateUI();
                 }

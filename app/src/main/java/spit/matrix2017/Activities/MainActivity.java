@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     FirebaseUser user;
 
-    SharedPreferences.Editor userInfo;
+    SharedPreferences.Editor sp,spa;
+    SharedPreferences userInfo;
+    SharedPreferences firstTime;
 
     static String type;
     private int i = 1;
@@ -127,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
         mDatabaseReference = mFirebaseDatabase.getReference().child("Users");
         mPushDatabaseReference = mFirebaseDatabase.getReference().child("Users");
 
-
+        userInfo = getSharedPreferences("userInfo",MODE_APPEND);
+        sp = userInfo.edit();
+        firstTime = getSharedPreferences("firstTime",MODE_APPEND);
 
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -139,13 +143,11 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
 
                     // Code to save userdata
-                    String x = "Welcome to the future " + user.getDisplayName();
-                    Toast.makeText(MainActivity.this, x ,Toast.LENGTH_SHORT).show();
-                    userInfo = getSharedPreferences("userInfo",MODE_APPEND).edit();
-                    userInfo.putString("name",user.getDisplayName());
-                    userInfo.putString("email",user.getEmail());
-                    //userInfo.putString("profile",user.getPhotoUrl().toString());
-                    userInfo.putString("UID",user.getUid());
+
+                    sp.putString("name",user.getDisplayName());
+                    sp.putString("email",user.getEmail());
+                    sp.putString("profile",user.getPhotoUrl().toString());
+                    sp.putString("UID",user.getUid());
 
 
                     if(admin.contains(user.getEmail())){
@@ -157,35 +159,21 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         type = "Guest";
                     }
-                    userInfo.putString("type",type);
-                    userInfo.commit();
+                    sp.putString("type",type);
+                    sp.commit();
 
 
-                    mValueEventListener = new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                                String x = (String) snapshot.child("email").getValue();
-                                if(user.getEmail().equals(x)){
-                                    i = 0;
-                                }
-                            }
-                        }
+                    if(firstTime.getBoolean("newSignIn",true)) {
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
 
-                        }
-                    };
-
-                    mDatabaseReference.addValueEventListener(mValueEventListener);
-                    if(i == 1) {
-                        mPushDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
-                                user.getDisplayName(), user.getUid(), type));
-                        i = 0;
                     }
 
-                } else {
+                    String x = "Welcome to the future " + user.getDisplayName();
+                    Toast.makeText(MainActivity.this, x ,Toast.LENGTH_SHORT).show();
+
+
+                }
+                else {
                     // User is signed out
                     startActivityForResult(
                             AuthUI.getInstance()
@@ -273,7 +261,16 @@ public class MainActivity extends AppCompatActivity {
                 // Sign-in succeeded, set up the UI
                 //String x = "Signed In as" + user.getDisplayName().toString();
                 //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
-                i = 1;
+                user = mFirebaseAuth.getCurrentUser();
+                Toast.makeText(MainActivity.this,"Registering!",Toast.LENGTH_SHORT);
+                Intent i = new Intent(MainActivity.this, LoginPage.class);
+                i.putExtra("name", user.getDisplayName());
+                i.putExtra("email", user.getEmail());
+                i.putExtra("profile", user.getPhotoUrl().toString());
+                i.putExtra("uid", user.getUid());
+                i.putExtra("type", type);
+                startActivity(i);
+
             } else if (resultCode == RESULT_CANCELED) {
                 // Sign in was canceled by the user, finish the activity
                 Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
