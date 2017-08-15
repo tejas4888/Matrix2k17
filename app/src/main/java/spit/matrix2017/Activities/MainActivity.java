@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     userInfo = getSharedPreferences("userInfo",MODE_APPEND).edit();
                     userInfo.putString("name",user.getDisplayName());
                     userInfo.putString("email",user.getEmail());
-                    userInfo.putString("profile",user.getPhotoUrl().toString());
+                    //userInfo.putString("profile",user.getPhotoUrl().toString());
                     userInfo.putString("UID",user.getUid());
 
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     mDatabaseReference.addValueEventListener(mValueEventListener);
                     if(i == 1) {
                         mPushDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
-                                user.getPhotoUrl().toString(), user.getUid(), type));
+                                user.getDisplayName(), user.getUid(), type));
                         i = 0;
                     }
 
