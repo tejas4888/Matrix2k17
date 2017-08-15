@@ -161,7 +161,24 @@ public class MainActivity extends AppCompatActivity {
                     userInfo.commit();
 
 
+                    mValueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                                String x = (String) snapshot.child("email").getValue();
+                                if(user.getEmail().equals(x)){
+                                    i = 0;
+                                }
+                            }
+                        }
 
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    };
+
+                    mDatabaseReference.addValueEventListener(mValueEventListener);
                     if(i == 1) {
                         mPushDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
                                 user.getPhotoUrl().toString(), user.getUid(), type));
@@ -257,7 +274,6 @@ public class MainActivity extends AppCompatActivity {
                 //String x = "Signed In as" + user.getDisplayName().toString();
                 //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
                 i = 1;
-                checkRegs();
             } else if (resultCode == RESULT_CANCELED) {
                 // Sign in was canceled by the user, finish the activity
                 Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
@@ -476,23 +492,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void checkRegs(){
-        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String x = (String) snapshot.child("email").getValue();
-                    if(user.getEmail().equals(x)){
-                        i = 0;
-                    }
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
 }
