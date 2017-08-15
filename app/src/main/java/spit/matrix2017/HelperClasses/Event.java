@@ -22,10 +22,10 @@ import java.util.Date;
 public class Event {
 
     //////////Custom data type for events//////////
-    private String name, description, posterUrl, dates, time, venue, pocName1, pocName2, pocNumber1, pocNumber2, prizeScheme;
-    private int fees; //Calculated per person
+    private String name, description, posterUrl, dates, time, venue,eventOrgMail, pocName1, pocName2, pocNumber1, pocNumber2, prizeScheme;
+    private String feeScheme; //Calculated per person
 
-    public Event(String name, String description, String posterUrl, String dates, String time, String venue, String pocName1, String pocName2, String pocNumber1, String pocNumber2, String prizeScheme, int fees) {
+    public Event(String name, String description, String posterUrl, String dates, String time, String venue,String eventOrgMail ,String pocName1, String pocName2, String pocNumber1, String pocNumber2, String prizeScheme, String feeScheme) {
         this.name = name;
         this.description = description;
         this.posterUrl = posterUrl;
@@ -37,7 +37,8 @@ public class Event {
         this.pocNumber1 = pocNumber1;
         this.pocNumber2 = pocNumber2;
         this.prizeScheme = prizeScheme;
-        this.fees = fees;
+        this.feeScheme = feeScheme;
+        this.eventOrgMail = eventOrgMail;
     }
 
     public String getName() {
@@ -84,8 +85,15 @@ public class Event {
         return prizeScheme;
     }
 
-    public int getFees() {
-        return fees;
+    public String getFees() {
+        return feeScheme;
     }
 
+    public String getEventOrgMail() {
+        return eventOrgMail;
+    }
+
+    public String getFeeScheme() {
+        return feeScheme;
+    }
 }

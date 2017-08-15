@@ -63,6 +63,7 @@ import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
 import spit.matrix2017.Fragments.MainFragment;
+import spit.matrix2017.Fragments.MyEventsFragment;
 import spit.matrix2017.Fragments.SponsorsFragment;
 import spit.matrix2017.HelperClasses.CustomPagerAdapter;
 import spit.matrix2017.HelperClasses.CustomViewPager;
@@ -305,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                case R.id.favorites_menuItem:
+                                /*case R.id.favorites_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
@@ -317,7 +318,8 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                case R.id.sponsors_menuItem:
+                                    */
+                                /*case R.id.sponsors_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
@@ -344,12 +346,27 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
+
                                 case R.id.developers_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
                                             getSupportFragmentManager().popBackStackImmediate();
                                             fragmentTransaction.replace(R.id.fragment_container, new DevelopersFragment());
+                                            appBarLayout.setExpanded(false, true);
+                                            fragmentTransaction.addToBackStack(null);
+                                            fragmentTransaction.commit();
+                                            collapsingToolbarLayout.setTitle("Developers");
+                                        }
+                                    }, DRAWER_DELAY);
+                                    break;
+                                */
+                                case R.id.myEvents_menuItem:
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            getSupportFragmentManager().popBackStackImmediate();
+                                            fragmentTransaction.replace(R.id.fragment_container, new MyEventsFragment());
                                             appBarLayout.setExpanded(false, true);
                                             fragmentTransaction.addToBackStack(null);
                                             fragmentTransaction.commit();

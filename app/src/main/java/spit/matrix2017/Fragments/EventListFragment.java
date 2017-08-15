@@ -196,14 +196,15 @@ public class EventListFragment extends Fragment{
                         String dates = (String) snapshot.child("dates").getValue();
                         String time = (String) snapshot.child("time").getValue();
                         String venue = (String) snapshot.child("venue").getValue();
+                        String orgMail = (String) snapshot.child("eventOrgMail").getValue();
                         String pocName1 = (String) snapshot.child("pocName1").getValue();
                         String pocName2 = (String) snapshot.child("pocName2").getValue();
                         String pocNumber1 = (String) snapshot.child("pocNumber1").getValue();
                         String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
                         String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
-                        int fees = (int) snapshot.child("fees").getValue(); //Calculated per person
+                        String fees = (String) snapshot.child("fees").getValue(); //Calculated per person
 
-                        mEvents.add(new Event(name,description,posterUrl,dates,time,venue,pocName1,
+                        mEvents.add(new Event(name,description,posterUrl,dates,time,venue,orgMail,pocName1,
                                                 pocName2,pocNumber1,pocNumber2,prizeScheme,fees));
                     }
                     updateUI();
