@@ -58,6 +58,10 @@
             android:title="@string/aboutapp"
             android:id="@+id/about_menuItem"
             android:icon="@drawable/svg_info_outline_white_24px"/>
+        <item
+            android:title="Sign Out"
+            android:id="@+id/sign_out"
+            android:icon="@drawable/svg_group_work_white_48px"/>
 
     </group>
 

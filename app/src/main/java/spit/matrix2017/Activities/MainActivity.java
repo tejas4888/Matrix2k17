@@ -17,8 +17,10 @@
 package spit.matrix2017.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -38,12 +40,21 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import me.relex.circleindicator.CircleIndicator;
 import spit.matrix2017.Fragments.AboutAppFragment;
@@ -55,7 +66,11 @@ import spit.matrix2017.Fragments.MainFragment;
 import spit.matrix2017.Fragments.SponsorsFragment;
 import spit.matrix2017.HelperClasses.CustomPagerAdapter;
 import spit.matrix2017.HelperClasses.CustomViewPager;
+import spit.matrix2017.HelperClasses.Event;
+import spit.matrix2017.HelperClasses.User;
 import spit.matrix2017.R;
+
+import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,8 +90,21 @@ public class MainActivity extends AppCompatActivity {
     private static final long DRAWER_DELAY = 250;
     private static int NUM_PAGES = 3;
 
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    FirebaseUser user;
 
+    SharedPreferences.Editor userInfo;
 
+    static String type;
+    private int i = 1;
+
+    private ArrayList admin, eventOrg;
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
+    private ValueEventListener mValueEventListener;
+    private DatabaseReference mPushDatabaseReference;
 
 
     @Override
@@ -88,40 +116,76 @@ public class MainActivity extends AppCompatActivity {
         else
             setContentView(R.layout.activity_main);
 
-        /*int[] images = {
-                R.drawable.event_daniel_fernandes,
-                R.drawable.event_techshiksha,
-                R.drawable.event_ethical_hacking,
-                R.drawable.event_startup_showcase,
-                R.drawable.event_hackathon,
-                R.drawable.event_project_mania,
-                R.drawable.event_sky_observation,
-                R.drawable.event_vsm,
-                R.drawable.event_codatron,
-                R.drawable.event_laser_maze,
-                R.drawable.event_laser_tag,
+        admin = new ArrayList();
+        admin.add("asdfas");// and so on
 
-                R.drawable.event_tech_charades,
-                R.drawable.event_battle_frontier,
-                R.drawable.event_escape_plan,
-                R.drawable.event_tech_xplosion,
-                R.drawable.event_no_escape,
-                R.drawable.event_techeshis_castle,
-                R.drawable.event_tesseract,
-
-                R.drawable.event_human_foosball,
-                R.drawable.event_battle_of_brains,
-                R.drawable.event_lan_gaming,
-                R.drawable.event_pokemon_showdown,
-                R.drawable.event_lan_mafia,
-                R.drawable.event_mind_that_word,
-
-        };*/
+        eventOrg = new ArrayList();
+        eventOrg.add("sdfasd");// and so on
 
 
-        /*for(int i: images)
-            Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
-        */
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference().child("Users");
+        mPushDatabaseReference = mFirebaseDatabase.getReference().child("Users");
+
+
+
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+
+                    // Code to save userdata
+                    String x = "Welcome to the future " + user.getDisplayName();
+                    Toast.makeText(MainActivity.this, x ,Toast.LENGTH_SHORT).show();
+                    userInfo = getSharedPreferences("userInfo",MODE_APPEND).edit();
+                    userInfo.putString("name",user.getDisplayName());
+                    userInfo.putString("email",user.getEmail());
+                    userInfo.putString("profile",user.getPhotoUrl().toString());
+                    userInfo.putString("UID",user.getUid());
+
+
+                    if(admin.contains(user.getEmail())){
+                        type = "Head";
+                    }
+                    else if(admin.contains(user.getEmail())) {
+                        type = "Admin";
+                    }
+                    else{
+                        type = "Guest";
+                    }
+                    userInfo.putString("type",type);
+                    userInfo.commit();
+
+
+
+                    if(i == 1) {
+                        mPushDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
+                                user.getPhotoUrl().toString(), user.getUid(), type));
+                        i = 0;
+                    }
+
+                } else {
+                    // User is signed out
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                                    .createSignInIntentBuilder()
+                                    .setIsSmartLockEnabled(false)
+                                    .setProviders(AuthUI.GOOGLE_PROVIDER,AuthUI.EMAIL_PROVIDER)
+                                    .setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
+                                    .build(),
+                            RC_SIGN_IN);
+                }
+            }
+        };
+
+
+
+
+
 
         //ViewPager
         mCustomPagerAdapter = new CustomPagerAdapter(this);
@@ -141,9 +205,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         //instantiation
-
-
-
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
@@ -185,6 +246,24 @@ public class MainActivity extends AppCompatActivity {
             navigationMenuView.setVerticalScrollBarEnabled(false);
         }
         navigationView.getMenu().getItem(0).setChecked(true);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
+            if (resultCode == RESULT_OK) {
+                // Sign-in succeeded, set up the UI
+                //String x = "Signed In as" + user.getDisplayName().toString();
+                //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
+                i = 1;
+                checkRegs();
+            } else if (resultCode == RESULT_CANCELED) {
+                // Sign in was canceled by the user, finish the activity
+                Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
     }
 
     public void setupDrawerLayout(){
@@ -313,12 +392,35 @@ public class MainActivity extends AppCompatActivity {
                                             collapsingToolbarLayout.setTitle(getResources().getString(R.string.aboutapp));
                                         }
                                     }, DRAWER_DELAY);
+                                case R.id.sign_out:
+                                    AuthUI.getInstance()
+                                            .signOut(MainActivity.this)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    i = 1;
+                                                }
+                                            });
+
                             }
                         }
                         return true;
                     }
                 }
         );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mAuthStateListener != null) {
+            mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
+        }
     }
 
     @Override
@@ -334,28 +436,25 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.follow_us:
-                return true;
+            //case R.id.follow_us:
+              //  return true;
             case R.id.menu_visit_website:
                 uri = Uri.parse(getResources().getString(R.string.matrix_website));
                 break;
             case R.id.menu_follow_facebook:
                 uri = Uri.parse(getResources().getString(R.string.matrix_fb_link));
                 break;
-            case R.id.menu_follow_twitter:
-                uri = Uri.parse(getResources().getString(R.string.matrix_twit_link));
-                break;
+           // case R.id.menu_follow_twitter:
+             //   uri = Uri.parse(getResources().getString(R.string.matrix_twit_link));
+               // break;
             case R.id.menu_follow_instagram:
                 uri = Uri.parse(getResources().getString(R.string.matrix_insta_link));
                 break;
             case R.id.menu_follow_snapchat:
                 uri = Uri.parse(getResources().getString(R.string.matrix_snap_link));
                 break;
-            case R.id.menu_sign_out:
-                FirebaseAuth fAuth = FirebaseAuth.getInstance();
-                fAuth.signOut();
-                Intent i = new Intent(this, LoginPage.class);
-                startActivity(i);
+            //case R.id.menu_sign_out:
+
         }
 
         Intent i = new Intent(Intent.ACTION_VIEW, uri);
@@ -376,4 +475,24 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+    public void checkRegs(){
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String x = (String) snapshot.child("email").getValue();
+                    if(user.getEmail().equals(x)){
+                        i = 0;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }

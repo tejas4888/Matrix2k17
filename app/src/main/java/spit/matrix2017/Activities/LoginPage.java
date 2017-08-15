@@ -2,6 +2,7 @@ package spit.matrix2017.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -27,156 +28,44 @@ import spit.matrix2017.HelperClasses.Feedback;
 import spit.matrix2017.HelperClasses.User;
 import spit.matrix2017.R;
 
-import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
 
 public class LoginPage extends AppCompatActivity {
 
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mDatabaseReference;
-    private ValueEventListener mValueEventListener;
 
     private FirebaseAuth mFirebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
     FirebaseUser user;
 
-    private String mUserName;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
+    private DatabaseReference mPushDatabaseReference;
 
-    private ArrayList admin, eventOrg;
-    private int i = 1;
+    int i = 1;
+    String name,email,profile,uid,type;
 
-    SharedPreferences.Editor userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        admin = new ArrayList();
-        admin.add("asdfas");// and so on
 
-        eventOrg = new ArrayList();
-        eventOrg.add("sdfasd");// and so on
+        Intent i = getIntent();
+        name = i.getStringExtra("name");
+        email = i.getStringExtra("email");
+        profile = i.getStringExtra("profile");
+        uid = i.getStringExtra("uid");
+        type = i.getStringExtra("type");
 
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference().child("users");
+        mDatabaseReference = mFirebaseDatabase.getReference().child("Users");
+        mPushDatabaseReference = mFirebaseDatabase.getReference().child("Users");
 
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+        LoginPage.FetchUserList  ful = new LoginPage.FetchUserList();
+        ful.execute();
 
-                    // Code to save userdata
-                    String x = "Welcome " + user.getDisplayName() + " to the future";
-                    Toast.makeText(LoginPage.this, x ,Toast.LENGTH_SHORT).show();
-                    userInfo = getSharedPreferences("userInfo",MODE_APPEND).edit();
-                    userInfo.putString("name",user.getDisplayName());
-                    userInfo.putString("email",user.getEmail());
-                    userInfo.putString("profile",user.getPhotoUrl().toString());
-                    userInfo.putString("UID",user.getUid());
 
-                    final String type;
-                    if(admin.contains(user.getEmail())){
-                        type = "Head";
-                    }
-                    else if(admin.contains(user.getEmail())) {
-                        type = "Admin";
-                    }
-                    else{
-                        type = "Guest";
-                    }
-                    userInfo.putString("type",type);
-                    userInfo.commit();
-
-                    final String UID = user.getUid();
-                    mValueEventListener = new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                String c_uid = (String) snapshot.child("uid").getValue();
-                                if(UID == c_uid){
-                                    i = 0;
-                                    Toast.makeText(LoginPage.this,"Already registered :)",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    };
-
-                    mDatabaseReference.addValueEventListener(mValueEventListener);
-
-                    if(i == 1) {
-                        //mDatabaseReference.push().setValue(new User(user.getDisplayName(), user.getEmail(),
-                                //user.getPhotoUrl().toString(), user.getUid(),
-                                //type));
-                    }
-
-                    Intent i = new Intent(LoginPage.this,MainActivity.class);
-                    startActivity(i);
-
-                } else {
-                    // User is signed out
-
-                    onSignedOutCleanup();
-                    startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setIsSmartLockEnabled(false)
-                                    .setProviders(AuthUI.GOOGLE_PROVIDER,AuthUI.EMAIL_PROVIDER)
-                                    .setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
-                                    .build(),
-                            RC_SIGN_IN);
-                }
-            }
-        };
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mAuthStateListener != null) {
-            mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
-        }
-    }
-
-    private void onSignedInInitialize(String username) {
-        mUserName = username;
-        //user.sendEmailVerification();
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) {
-                // Sign-in succeeded, set up the UI
-                //String x = "Signed In as" + user.getDisplayName().toString();
-                //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
-
-            } else if (resultCode == RESULT_CANCELED) {
-                // Sign in was canceled by the user, finish the activity
-                Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        }
-    }
-
-    private void onSignedOutCleanup(){
-        mUserName = "ANONYMOUS";
-    }
 
     @Override
     public void onBackPressed() {
@@ -187,4 +76,37 @@ public class LoginPage extends AppCompatActivity {
             this.finish();
         }
     }
+
+
+    public class FetchUserList extends AsyncTask<Void,Void,ArrayList<Event>> {
+        @Override
+        protected void onPreExecute() {
+            //bar.setVisibility(View.VISIBLE);
+        }
+        @Override
+        protected ArrayList<Event> doInBackground(Void... params) {
+            mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        if(snapshot.child("email").getValue().equals(email)){
+                            finish();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            mPushDatabaseReference.push().setValue(new User(name,email,profile,uid,type));
+            finish();
+            //Toast.makeText(MainActivity.this,"Registering",Toast.LENGTH_SHORT).show();
+            return null;
+        }
+    }
+
+
 }
