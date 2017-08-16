@@ -30,6 +30,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -70,7 +71,11 @@ public class MyEventsFragment extends Fragment {
         email = userInfo.getString("email",null);
 
 
+
+
     }
+
+
 
     @Nullable
     @Override
@@ -86,6 +91,16 @@ public class MyEventsFragment extends Fragment {
 
         MyEventsFragment.FetchMyEventList fml = new MyEventsFragment.FetchMyEventList();
         fml.execute();
+
+        Button b  = (Button) this.getActivity().findViewById(R.id.myEventFab);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),AddEvent.class);
+                startActivity(i);
+            }
+        });
+
         return view;
     }
 
@@ -96,10 +111,7 @@ public class MyEventsFragment extends Fragment {
         recyclerView.scrollToPosition(0);
     }
 
-    public void newEvent(View v){
-        Intent i = new Intent(getContext(), AddEvent.class);
-        startActivity(i);
-    }
+
 
     public class FetchMyEventList extends AsyncTask<Void,Void,ArrayList<Event>> {
 
@@ -152,4 +164,7 @@ public class MyEventsFragment extends Fragment {
             return null;
         }
     }
+
+
+
 }

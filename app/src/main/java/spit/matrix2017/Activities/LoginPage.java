@@ -45,13 +45,14 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
     private DatabaseReference mPushDatabaseReference;
 
     int i = 1;
-    String name,email,profile,uid,type;
+    String name,email,profile,uid,type,phoneNo;
+
     SharedPreferences.Editor sp,spa;
     SharedPreferences userInfo;
     SharedPreferences firstTime;
 
     TextView uname,uemail,utype;
-    EditText uclass;
+    EditText uclass,ucontact;
     ImageView uprofile;
     Spinner spinner;
     Button b;
@@ -90,6 +91,7 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
         uprofile = (ImageView) findViewById(R.id.uProfile);
         uclass = (EditText) findViewById(R.id.uClass);
         spinner = (Spinner) findViewById(R.id.spinner);
+        ucontact = (EditText) findViewById(R.id.uContact);
 
         uname.setText(name);
         uemail.setText(email);
@@ -160,7 +162,8 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
 
     public void regUser(View v){
         // Get the class + branch here!!
-        mPushDatabaseReference.push().setValue(new User(name,email,profile,uid,type,fixedFrom));
+        phoneNo = ucontact.getText().toString();
+        mPushDatabaseReference.push().setValue(new User(name,email,profile,uid,type,fixedFrom,phoneNo));
         Toast.makeText(this,"You are    registered",Toast.LENGTH_SHORT).show();
         spa.putBoolean("firstSignIn",false);
         spa.commit();

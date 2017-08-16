@@ -7,4 +7,86 @@
     tools:context="spit.matrix2017.Activities.AddEvent"
     android:orientation="vertical">
 
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="50dp"
+        android:hint="name"
+        android:id="@+id/eventName"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Description"
+        android:id="@+id/eventDescription"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Date"
+        android:id="@+id/eventDates"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Timings"
+        android:id="@+id/eventTime"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Venue"
+        android:id="@+id/eventVenue"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Organizer mail"
+        android:id="@+id/eventOrgMail"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Name1"
+        android:id="@+id/eventPocName1"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Number1"
+        android:id="@+id/eventPocNumber1"
+        android:inputType="number"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Name2"
+        android:id="@+id/eventPocName2"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Number2"
+        android:id="@+id/eventPocNumber2"
+        android:inputType="number"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Prize Scheme"
+        android:id="@+id/eventPrizeScheme"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:hint="Fee Scheme"
+        android:id="@+id/eventFeeScheme"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Add!"
+        android:onClick="addEvent"/>
+
 </LinearLayout>

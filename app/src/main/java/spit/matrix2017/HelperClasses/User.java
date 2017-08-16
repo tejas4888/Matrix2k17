@@ -4,15 +4,17 @@ package spit.matrix2017.HelperClasses;
 public class User {
     private String name,email,profile,UID,type;
     private String from;
+    private String phone;
 
 
-    public User(String name, String email, String profile, String UID, String type, String from) {
+    public User(String name, String email, String profile, String UID, String type, String from,String phone) {
         this.name = name;
         this.email = email;
         this.profile = profile;
         this.UID = UID;
         this.type = type;
         this.from = from;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -37,5 +39,9 @@ public class User {
 
     public String getFrom() {
         return from;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 }

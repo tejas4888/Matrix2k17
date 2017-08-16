@@ -5,18 +5,24 @@ package spit.matrix2017.HelperClasses;
  */
 
 public class Feedback {
-    private String feedback,rating;
+    private String feedback,uid;
+    private int rating;
 
-    public Feedback(String feedback, String rating) {
+    public Feedback(String feedback, int rating,String uid) {
         this.feedback = feedback;
         this.rating = rating;
+        this.uid = uid;
     }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public String getFeedback() {
+        return feedback;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public String getUid() {
+        return uid;
+    }
+
+    public int getRating() {
+        return rating;
     }
 }
