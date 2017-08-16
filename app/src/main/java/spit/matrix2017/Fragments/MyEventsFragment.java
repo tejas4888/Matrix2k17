@@ -44,6 +44,7 @@ import spit.matrix2017.Activities.AddEvent;
 import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
+import spit.matrix2017.HelperClasses.MyEventAdapter;
 import spit.matrix2017.HelperClasses.SponsorRecyclerAdapter;
 import spit.matrix2017.R;
 
@@ -108,7 +109,9 @@ public class MyEventsFragment extends Fragment {
 
     public void updateUI(){
         final EventListAdapter evl = new EventListAdapter(getContext(),mEvents);
+        //final MyEventAdapter evl=new MyEventAdapter(mEvents,getContext());
         recyclerView.setAdapter(evl);
+        Log.v("Recycler","Hello");
         recyclerView.scrollToPosition(0);
     }
 

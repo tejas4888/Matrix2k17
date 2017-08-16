@@ -24,14 +24,18 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -49,12 +53,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         TextView eventTitle;
         ImageView thumbnail;
         View background;
+        CardView cardView;
 
         MyViewHolder(View view) {
             super(view);
             eventTitle = (TextView) view.findViewById(R.id.event_title);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             background = view.findViewById(R.id.textView_background);
+            cardView = (CardView) view.findViewById(R.id.myaccount_cardview);
         }
 
         @Override
@@ -75,7 +81,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             i.putExtra("contact1no", event.getPocNumber1());
             i.putExtra("contact2name", event.getPocName2());
             i.putExtra("contact2no", event.getPocNumber2());
-
 
             v.getContext().startActivity(i);
 
@@ -139,6 +144,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
            // holder.itemView.startAnimation(animation);
             //lastPosition= position;
         //}
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v("Card clicked","hello");
+                Toast.makeText(v.getContext(),"MyEvent Clicked",Toast.LENGTH_SHORT);
+            }
+        });
     }
 
     @Override
