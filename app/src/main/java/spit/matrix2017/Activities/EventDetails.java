@@ -124,8 +124,8 @@ public class EventDetails
         setPrizes(getIntent().getStringExtra("prizes"));
         setContacts(getIntent().getStringExtra("contact1name"), getIntent().getStringExtra("contact1no"), getIntent().getStringExtra("contact2name"), getIntent().getStringExtra("contact2no"));
 
-        isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1;
-        isReminderSet = getIntent().getIntExtra("reminder", 0) == 1;
+        //isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1;
+        //isReminderSet = getIntent().getIntExtra("reminder", 0) == 1;
 
         mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;

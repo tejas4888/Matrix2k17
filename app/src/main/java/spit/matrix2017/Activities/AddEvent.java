@@ -66,7 +66,10 @@ public class AddEvent extends AppCompatActivity {
         prizeScheme = eprize.getText().toString();
         feeScheme = efees.getText().toString();
 
-        mDatabaseReference.push().setValue(new Event(name,desc,"",date,time,venue,orgMail,pocName1,pocName2,pocNumber1,pocNumber2,prizeScheme,feeScheme));
+        /*Hardcoded Poster*/
+        String x = "https://s-media-cache-ak0.pinimg.com/originals/8e/f5/9d/8ef59dc3c90a3abd56c87a5901709132.jpg";
+
+        mDatabaseReference.push().setValue(new Event(name,desc,x,date,time,venue,orgMail,pocName1,pocName2,pocNumber1,pocNumber2,prizeScheme,feeScheme));
         Toast.makeText(this,"Done!",Toast.LENGTH_SHORT);
         finish();
     }

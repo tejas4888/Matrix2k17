@@ -102,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
     static String type;
     private int i = 1;
 
+    public static String Email;
+
     private ArrayList admin, eventOrg;
 
     private FirebaseDatabase mFirebaseDatabase;
@@ -150,24 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     sp.putString("profile",user.getPhotoUrl().toString());
                     sp.putString("UID",user.getUid());
 
-
-                    if(admin.contains(user.getEmail())){
-                        type = "Head";
-                    }
-                    else if(admin.contains(user.getEmail())) {
-                        type = "Admin";
-                    }
-                    else{
-                        type = "Guest";
-                    }
-                    sp.putString("type",type);
-                    sp.commit();
-
-
-                    if(firstTime.getBoolean("newSignIn",true)) {
-
-
-                    }
+                    Email = user.getEmail();
 
                     String x = "Welcome to the future " + user.getDisplayName();
                     Toast.makeText(MainActivity.this, x ,Toast.LENGTH_SHORT).show();

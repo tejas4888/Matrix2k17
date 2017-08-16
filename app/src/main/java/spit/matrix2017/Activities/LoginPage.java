@@ -37,7 +37,7 @@ import spit.matrix2017.HelperClasses.User;
 import spit.matrix2017.R;
 
 
-public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class LoginPage extends AppCompatActivity {
 
 
     private FirebaseDatabase mFirebaseDatabase;
@@ -56,12 +56,22 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
     ImageView uprofile;
     Spinner spinner;
     Button b;
+    String x,z;
+
+    private ArrayList admin, eventOrg;
+
 
     String fixedFrom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+
+        admin = new ArrayList();
+        admin.add("asdfas");// and so on
+
+        eventOrg = new ArrayList();
+        eventOrg.add("sdfasd");// and so on
 
         userInfo = getSharedPreferences("userInfo",MODE_APPEND);
         sp = userInfo.edit();
@@ -74,7 +84,20 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
         email = i.getStringExtra("email");
         profile = i.getStringExtra("profile");
         uid = i.getStringExtra("uid");
-        type = i.getStringExtra("type");
+        //type = i.getStringExtra("type");
+
+        if(admin.contains(email)){
+            type = "Head";
+        }
+        else if(admin.contains(email)) {
+            type = "Admin";
+        }
+        else{
+            type = "Guest";
+        }
+        sp.putString("type",type);
+        sp.commit();
+
 
         b = (Button) findViewById(R.id.regButton);
         b.setClickable(false);
@@ -101,7 +124,6 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
         Toast.makeText(this,userInfo.getString("name","huh?"),Toast.LENGTH_SHORT);
 
 
-        spinner.setOnItemSelectedListener(this);
 
         // Spinner Drop down elements
         List<String> categories = new ArrayList<String>();
@@ -118,6 +140,20 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                x = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                fixedFrom = uclass.getText().toString() + "" + "COMPS";
+            }
+        });
+
 
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -163,6 +199,8 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
     public void regUser(View v){
         // Get the class + branch here!!
         phoneNo = ucontact.getText().toString();
+        z = uclass.getText().toString();
+        fixedFrom = z + " " + x;
         mPushDatabaseReference.push().setValue(new User(name,email,profile,uid,type,fixedFrom,phoneNo));
         Toast.makeText(this,"You are    registered",Toast.LENGTH_SHORT).show();
         spa.putBoolean("firstSignIn",false);
@@ -171,15 +209,4 @@ public class LoginPage extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String x = parent.getItemAtPosition(position).toString();
-        fixedFrom = uclass.getText().toString() + "" + x;
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        //Do something
-        fixedFrom = uclass.getText().toString() + "" + "COMPS";
-    }
 }

@@ -69,19 +69,22 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             i.putExtra("description", event.getDescription());
             i.putExtra("venue", event.getVenue());
             i.putExtra("time", event.getTime());
-            i.putExtra("registration", event.getFees());
+            i.putExtra("registration", event.getFeeScheme());
             i.putExtra("prizes", event.getPrizeScheme());
             i.putExtra("contact1name", event.getPocName1());
             i.putExtra("contact1no", event.getPocNumber1());
             i.putExtra("contact2name", event.getPocName2());
             i.putExtra("contact2no", event.getPocNumber2());
 
+
+            v.getContext().startActivity(i);
+
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                ImageView poster = (ImageView)v.findViewById(R.id.thumbnail);
-                poster.setTransitionName("poster");
+               // ImageView poster = (ImageView)v.findViewById(R.id.thumbnail);
+                //poster.setTransitionName("poster");
                 //Pair pair = new Pair<>(poster, ViewCompat.getTransitionName(poster));
 
-               // ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(v.getActivity(),pair);
+                //ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(v.getActivity(),pair);
                 //ActivityCompat.startActivity(getActivity(),i,optionsCompat.toBundle());
 
 
@@ -118,8 +121,10 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         Event eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
-        Picasso.with(mContext).load(eventName.getPosterUrl()).resize(400, 400).centerCrop().into(holder.thumbnail);
 
+        if(eventName.getPosterUrl()!= "") {
+            Picasso.with(mContext).load(eventName.getPosterUrl()).resize(400, 400).centerCrop().into(holder.thumbnail);
+        }
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 

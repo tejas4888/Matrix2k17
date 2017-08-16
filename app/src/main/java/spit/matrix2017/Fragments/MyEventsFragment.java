@@ -65,14 +65,6 @@ public class MyEventsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events");
-        userInfo = this.getActivity().getSharedPreferences("userInfo", Context.MODE_APPEND);
-        email = userInfo.getString("email",null);
-
-
-
-
     }
 
 
@@ -82,6 +74,14 @@ public class MyEventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_myevents,container,false);
 
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+
+        userInfo = this.getActivity().getSharedPreferences("userInfo", Context.MODE_APPEND);
+        //email = userInfo.getString("email","xyz@gmail.com");
+
+        email = MainActivity.Email;
+
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclermyEvents);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -89,17 +89,18 @@ public class MyEventsFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
         mEvents = new ArrayList<Event>();
 
-        MyEventsFragment.FetchMyEventList fml = new MyEventsFragment.FetchMyEventList();
-        fml.execute();
-
-        Button b  = (Button) this.getActivity().findViewById(R.id.myEventFab);
-        b.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.eventFab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(),AddEvent.class);
                 startActivity(i);
             }
         });
+
+        MyEventsFragment.FetchMyEventList fml = new MyEventsFragment.FetchMyEventList();
+        fml.execute();
+
 
         return view;
     }
