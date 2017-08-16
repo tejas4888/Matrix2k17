@@ -11,38 +11,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:hint="name"
-            android:id="@+id/eventName"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:hint="Description"
-            android:id="@+id/eventDescription"/>
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:hint="Date"
-            android:id="@+id/eventDates"/>
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:hint="Timings"
-            android:id="@+id/eventTime"/>
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
+
+
+            <ImageView
+                android:id="@+id/eventPoster"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@android:drawable/ic_menu_report_image" />
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:onClick="addPoster"
+                android:src="@android:drawable/ic_menu_camera"
+                android:layout_marginLeft="70dp"/>
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="name"
+                android:id="@+id/eventName"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:hint="Description"
+                android:id="@+id/eventDescription"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:hint="Date"
+                android:id="@+id/eventDates"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:hint="Timings"
+                android:id="@+id/eventTime"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
             android:hint="Venue"
             android:id="@+id/eventVenue"/>
         <EditText
