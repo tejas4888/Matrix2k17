@@ -127,6 +127,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         Event eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
 
+        holder.thumbnail.setImageResource(R.mipmap.ic_launcher);
         if(eventName.getPosterUrl()!= "") {
             Picasso.with(mContext).load(eventName.getPosterUrl()).resize(400, 400).centerCrop().into(holder.thumbnail);
         }

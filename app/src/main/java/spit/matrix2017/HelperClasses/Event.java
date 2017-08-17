@@ -85,10 +85,6 @@ public class Event {
         return prizeScheme;
     }
 
-    public String getFees() {
-        return feeScheme;
-    }
-
     public String getEventOrgMail() {
         return eventOrgMail;
     }

@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setProviders(AuthUI.GOOGLE_PROVIDER,AuthUI.EMAIL_PROVIDER)
+                                    .setProviders(AuthUI.GOOGLE_PROVIDER)
                                     .setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
                                     .build(),
                             RC_SIGN_IN);
@@ -355,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
                                             appBarLayout.setExpanded(false, true);
                                             fragmentTransaction.addToBackStack(null);
                                             fragmentTransaction.commit();
-                                            collapsingToolbarLayout.setTitle("Developers");
+                                            collapsingToolbarLayout.setTitle("My Events");
                                         }
                                     }, DRAWER_DELAY);
                                     break;

@@ -66,6 +66,8 @@ public class EventListFragment extends Fragment{
     private DatabaseReference mItemDatabaseReference;
     private ValueEventListener mValueEventListener;
 
+    private EventListAdapter evl;
+
     private ArrayList<Event> mEvents;
 
     public static EventListFragment newInstance(String category){
@@ -108,11 +110,13 @@ public class EventListFragment extends Fragment{
 
 
 
-        /*mRecyclerView.addOnItemTouchListener(
+        mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event= null;
+
+                        Event event = mEvents.get(position);
+
                         Intent i = new Intent(getContext(), EventDetails.class);
 
                         i.putExtra("image",event.getPosterUrl());
@@ -120,13 +124,12 @@ public class EventListFragment extends Fragment{
                         i.putExtra("description", event.getDescription());
                         i.putExtra("venue", event.getVenue());
                         i.putExtra("time", event.getTime());
-                        i.putExtra("registration", event.getFees());
+                        i.putExtra("registration", event.getFeeScheme());
                         i.putExtra("prizes", event.getPrizeScheme());
                         i.putExtra("contact1name", event.getPocName1());
                         i.putExtra("contact1no", event.getPocNumber1());
                         i.putExtra("contact2name", event.getPocName2());
                         i.putExtra("contact2no", event.getPocNumber2());
-
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                             ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
                             poster.setTransitionName("poster");
@@ -146,7 +149,8 @@ public class EventListFragment extends Fragment{
                     }
                 })
 
-        );*/
+        );
+
 
         EventListFragment.FetchEventList fel = new EventListFragment.FetchEventList();
         fel.execute();
@@ -167,7 +171,7 @@ public class EventListFragment extends Fragment{
     }
 
     public void updateUI(){
-        final EventListAdapter evl = new EventListAdapter(getContext(),mEvents);
+        evl = new EventListAdapter(getContext(),mEvents);
         mRecyclerView.setAdapter(evl);
         mRecyclerView.scrollToPosition(0);
     }

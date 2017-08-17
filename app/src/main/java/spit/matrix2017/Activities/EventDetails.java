@@ -57,6 +57,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -67,7 +69,6 @@ public class EventDetails
 {
     private boolean isFavouriteEvent;
     private boolean isReminderSet;
-    FloatingActionButton fab;
     private String event_name;
     private MenuItem mi_reminder;
     private long mEventID;
@@ -129,14 +130,10 @@ public class EventDetails
 
         mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
-        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.event_vsm));
+        Glide.with(this).load(getIntent().getStringExtra("image")).centerCrop().fitCenter().into(mainImageView);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
-        if (isFavouriteEvent)
-            fab.setImageResource(R.drawable.svg_favorite_white_48px);
 
-        Bitmap bitmap = ((BitmapDrawable)mainImageView.getDrawable()).getBitmap();
+       /* Bitmap bitmap = ((BitmapDrawable)mainImageView.getDrawable()).getBitmap();
 
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener()
         {
@@ -166,29 +163,9 @@ public class EventDetails
                 }
             }
         });
+        */
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isFavouriteEvent = !isFavouriteEvent;
-                ContentResolver contentResolver = getContentResolver();
-                Uri uri = Uri.parse("content://spit.matrix2017.provider");
-                String selection = "name = ?";
-                String[] selectionArgs = {getIntent().getStringExtra("name")};
-                ContentValues cv = new ContentValues();
 
-                if (isFavouriteEvent) {
-                    cv.put("favorite", 1);
-                    contentResolver.update(uri, cv, selection, selectionArgs);
-                    Toast.makeText(EventDetails.this, "Added to favorites", Toast.LENGTH_SHORT).show();
-                    fab.setImageResource(R.drawable.svg_favorite_white_48px);
-                } else {
-                    cv.put("favorite", 0);
-                    contentResolver.update(uri, cv, selection, selectionArgs);
-                    fab.setImageResource(R.drawable.svg_favorite_border_white_48px);
-                }
-            }
-        });
     }
 
     @Override
@@ -197,7 +174,7 @@ public class EventDetails
             Slide slide = new Slide(Gravity.BOTTOM);
 
             if(isFirstLaunch) {
-                fab.hide();
+
                 isFirstLaunch = false;
             }
 
@@ -241,7 +218,7 @@ public class EventDetails
             }
             @Override
             public void onTransitionEnd(Transition transition) {
-                fab.show();
+
             }
             @Override
             public void onTransitionCancel(Transition transition) {
@@ -529,12 +506,21 @@ public class EventDetails
 
     @Override
     public void onBackPressed() {
-        if(fab.isShown())
-            mainImageView.bringToFront();
-        fab.setVisibility(View.GONE);
+
+        mainImageView.bringToFront();
         registration_card.setVisibility(View.GONE);
         prizes_card.setVisibility(View.GONE);
         organizers_card.setVisibility(View.GONE);
         super.onBackPressed();
+    }
+
+    public void register(View v){
+        Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void feedback(View v){
+        Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
+
     }
 }
