@@ -56,14 +56,18 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.AddEvent"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Activities.RegConfirm"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.GiveFeedback"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.AddEvent2"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
