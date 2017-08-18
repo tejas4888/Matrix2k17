@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/main_imageView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="320dp"
                 android:adjustViewBounds="true"
                 app:layout_collapseMode="parallax"
                 android:fitsSystemWindows="true"
