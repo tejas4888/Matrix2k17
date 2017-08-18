@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#B71C1C</color>
     <color name="colorPrimaryDark">#D50000</color>
-    <color name="colorAccent">#EEEEEE</color>
+    <color name="colorAccent">#757575</color>
 
     <color name="background">#EEEEEE</color>
     <color name="card_background">#FAFAFA</color>

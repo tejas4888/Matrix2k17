@@ -15,28 +15,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginTop="32dp"
+            android:weightSum="1">
 
 
             <ImageView
                 android:id="@+id/eventPoster"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"
                 android:src="@android:drawable/ic_menu_report_image" />
 
             <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
                 android:onClick="addPoster"
+                android:layout_gravity="center_horizontal"
                 android:src="@android:drawable/ic_menu_camera"
-                android:layout_marginLeft="70dp"/>
+                android:layout_weight="0.21" />
 
-            <EditText
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:hint="name"
-                android:id="@+id/eventName"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/eventName"
+                    android:hint="Event Name"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
@@ -44,18 +62,27 @@
                 android:layout_marginTop="10dp"
                 android:hint="Description"
                 android:id="@+id/eventDescription"/>
-            <EditText
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:hint="Date"
                 android:id="@+id/eventDates"/>
 
-        <Button
-            android:layout_width="wrap_content"
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:text="Add!"
+            android:text="Proceed-->"
             android:onClick="addEvent"/>
 
         </LinearLayout>

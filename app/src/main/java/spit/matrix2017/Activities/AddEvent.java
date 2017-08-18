@@ -3,6 +3,7 @@ package spit.matrix2017.Activities;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,8 @@ import spit.matrix2017.R;
 public class AddEvent extends AppCompatActivity {
 
     String name,desc,date,time,venue,orgMail,pocName1,pocName2,pocNumber1,pocNumber2,prizeScheme,feeScheme;
-    EditText ename,edesc,edate,etime,evenue,eOrgMail,epocName1,epocName2,epocNumber1,epocNumber2,eprize,efees;
+    EditText edesc,edate,etime,evenue,eOrgMail,epocName1,epocName2,epocNumber1,epocNumber2,eprize,efees;
+    EditText ename;
     ImageView poster;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
