@@ -16,6 +16,7 @@
 
 package spit.matrix2017.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -132,9 +133,9 @@ public class MainActivity extends AppCompatActivity {
         mDatabaseReference = mFirebaseDatabase.getReference().child("Users");
         mPushDatabaseReference = mFirebaseDatabase.getReference().child("Users");
 
-        userInfo = getSharedPreferences("userInfo",MODE_APPEND);
+        userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
         sp = userInfo.edit();
-        firstTime = getSharedPreferences("firstTime",MODE_APPEND);
+        firstTime = getSharedPreferences("firstTime",Context.MODE_APPEND);
 
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -151,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     sp.putString("email",user.getEmail());
                     sp.putString("profile",user.getPhotoUrl().toString());
                     sp.putString("UID",user.getUid());
+                    sp.commit();
 
                     Email = user.getEmail();
 
@@ -385,6 +387,7 @@ public class MainActivity extends AppCompatActivity {
                                             collapsingToolbarLayout.setTitle(getResources().getString(R.string.aboutapp));
                                         }
                                     }, DRAWER_DELAY);
+                                    break;
                                 case R.id.sign_out:
                                     AuthUI.getInstance()
                                             .signOut(MainActivity.this)

@@ -1,5 +1,6 @@
 package spit.matrix2017.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -73,10 +74,10 @@ public class LoginPage extends AppCompatActivity {
         eventOrg = new ArrayList();
         eventOrg.add("sdfasd");// and so on
 
-        userInfo = getSharedPreferences("userInfo",MODE_APPEND);
+        userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
         sp = userInfo.edit();
 
-        firstTime = getSharedPreferences("firstTime",MODE_APPEND);
+        firstTime = getSharedPreferences("firstTime", Context.MODE_APPEND);
         spa = firstTime.edit();
 
         Intent i = getIntent();
@@ -205,6 +206,8 @@ public class LoginPage extends AppCompatActivity {
         Toast.makeText(this,"You are    registered",Toast.LENGTH_SHORT).show();
         spa.putBoolean("firstSignIn",false);
         spa.commit();
+        sp.putString("from", fixedFrom);
+        sp.commit();
         finish();
     }
 

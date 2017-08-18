@@ -53,10 +53,17 @@
         </activity>
         <activity
             android:name=".Activities.LoginPage"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.AddEvent"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.RegConfirm"
             android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Activities.GiveFeedback"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

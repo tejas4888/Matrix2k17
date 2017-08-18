@@ -62,6 +62,7 @@ import com.bumptech.glide.Glide;
 import java.util.Calendar;
 import java.util.Objects;
 
+import spit.matrix2017.HelperClasses.*;
 import spit.matrix2017.R;
 
 public class EventDetails
@@ -515,12 +516,16 @@ public class EventDetails
     }
 
     public void register(View v){
-        Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this,RegConfirm.class);
+        i.putExtra("name",getIntent().getStringExtra("name"));
+        startActivity(i);
     }
 
     public void feedback(View v){
-        Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(this,"Not yet :(",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this,GiveFeedback.class);
+        i.putExtra("name",getIntent().getStringExtra("name"));
+        startActivity(i);
     }
 }
