@@ -37,6 +37,10 @@ public class AddEvent2 extends AppCompatActivity {
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+
+        /*  Get a caegory from user out of Mega, Major and Fun,
+        accordingly branch the database reference one branch further and then push*/
+
     }
 
     public void addEvent2(View v)

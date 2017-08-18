@@ -89,7 +89,7 @@ public class EventListFragment extends Fragment{
             category = bundle.getString("data");
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Events").child(category);
         mEvents = new ArrayList<Event>();
     }
 
@@ -112,7 +112,8 @@ public class EventListFragment extends Fragment{
 
         mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
+                    @Override
+                    public void onItemClick(View view, int position) {
                         // do whatever
 
                         Event event = mEvents.get(position);

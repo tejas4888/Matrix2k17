@@ -20,10 +20,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +36,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,10 +47,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import spit.matrix2017.Activities.AddEvent;
+import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.Activities.MainActivity;
+import spit.matrix2017.Activities.MyRegistrations;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
 import spit.matrix2017.HelperClasses.MyEventAdapter;
+import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.HelperClasses.SponsorRecyclerAdapter;
 import spit.matrix2017.R;
 
@@ -89,6 +98,50 @@ public class MyEventsFragment extends Fragment {
         recyclerView.hasFixedSize();
         recyclerView.setNestedScrollingEnabled(false);
         mEvents = new ArrayList<Event>();
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // do whatever
+
+                        Event event = mEvents.get(position);
+                        Intent i = new Intent(getContext(), MyRegistrations.class);
+
+                        i.putExtra("name", event.getName());
+                        /*i.putExtra("image",event.getPosterUrl());
+                        i.putExtra("description", event.getDescription());
+                        i.putExtra("venue", event.getVenue());
+                        i.putExtra("time", event.getTime());
+                        i.putExtra("registration", event.getFeeScheme());
+                        i.putExtra("prizes", event.getPrizeScheme());
+                        i.putExtra("contact1name", event.getPocName1());
+                        i.putExtra("contact1no", event.getPocNumber1());
+                        i.putExtra("contact2name", event.getPocName2());
+                        i.putExtra("contact2no", event.getPocNumber2());*/
+
+                        startActivity(i);
+
+                        /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                            ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
+                            poster.setTransitionName("poster");
+                            Pair pair = new Pair<>(poster, ViewCompat.getTransitionName(poster));
+
+                            ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),pair);
+                            ActivityCompat.startActivity(getActivity(),i,optionsCompat.toBundle());
+
+
+                        }
+                        else{}
+                        //getContext().startActivity(i);
+                        */
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.eventFab);
         fab.setOnClickListener(new View.OnClickListener() {

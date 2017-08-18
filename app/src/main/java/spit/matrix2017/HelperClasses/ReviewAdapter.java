@@ -21,7 +21,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     ArrayList<Feedback> feedbacks;
     Context context;
 
-    ReviewAdapter(ArrayList<Feedback> feedbacks,Context context)
+    public ReviewAdapter(ArrayList<Feedback> feedbacks,Context context)
     {
         this.feedbacks=feedbacks;
         this.context=context;
@@ -37,7 +37,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     public void onBindViewHolder(ReviewAdapter.ReviewViewHolder holder, int position) {
 
         //Perform operation here
-        //Eg. holder.emailtext.setText("abc@gmail.com");
+        //Eg.
+        Feedback f = feedbacks.get(position);
+        holder.emailtext.setText(f.getEmail());
+        holder.feedbacktext.setText(f.getFeedback());
+        holder.ratingtext.setText(f.getRating() + "/5");
+
 
     }
 

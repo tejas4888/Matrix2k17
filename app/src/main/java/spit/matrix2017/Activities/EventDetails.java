@@ -29,6 +29,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -44,6 +45,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -58,7 +62,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -78,7 +88,14 @@ public class EventDetails
     CollapsingToolbarLayout collapsingToolbarLayout;
     CardView organizers_card,prizes_card,registration_card,venue_time_card;
     TextView hardcodedDate;
+    private RecyclerView mRecyclerView;
+    private ReviewAdapter mReviewAdapter;
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mItemDatabaseReference;
+    private ValueEventListener mValueEventListener;
     //Comment
+    private ArrayList<Feedback> mFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +105,20 @@ public class EventDetails
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
+
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.tv_feedbackRecycler);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,1));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mItemDatabaseReference = mFirebaseDatabase.getReference().child("Feedback").child(getIntent().getStringExtra("name"));
+        mFeedback = new ArrayList<Feedback>();
+
+        EventDetails.FetchFeedbackList fel = new EventDetails.FetchFeedbackList();
+        fel.execute();
+
 
         final AppCompatTextView textViews[] = {
                 (AppCompatTextView) findViewById(R.id.tv_event_description),
@@ -527,5 +558,51 @@ public class EventDetails
         Intent i = new Intent(this,GiveFeedback.class);
         i.putExtra("name",getIntent().getStringExtra("name"));
         startActivity(i);
+    }
+
+
+    public class FetchFeedbackList extends AsyncTask<Void,Void,ArrayList<Event>> {
+
+        @Override
+        protected void onPreExecute() {
+            //bar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected ArrayList<Event> doInBackground(Void... params) {
+
+            mValueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    mFeedback.clear();
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        String name = (String) snapshot.child("email").getValue();
+                        if(name == null) {
+                            break;
+                        }
+                        String email = (String) snapshot.child("email").getValue();
+                        String rating = (String) snapshot.child("rating").getValue();
+                        String feedback = (String) snapshot.child("feedback").getValue();
+                        mFeedback.add(new Feedback(feedback,rating,email));
+
+                    }
+                    updateUI();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mItemDatabaseReference.addValueEventListener(mValueEventListener);
+            return null;
+        }
+    }
+
+    public void updateUI(){
+        mReviewAdapter = new ReviewAdapter(mFeedback,EventDetails.this);
+        mRecyclerView.setAdapter(mReviewAdapter);
+        mRecyclerView.scrollToPosition(0);
     }
 }

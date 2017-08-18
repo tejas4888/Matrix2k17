@@ -75,7 +75,7 @@ public class MainFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             EventListFragment megaEventPage = EventListFragment.newInstance(getResources().getString(R.string.mega));
-            EventListFragment techEventPage =  EventListFragment.newInstance(getResources().getString(R.string.tech));
+            EventListFragment techEventPage =  EventListFragment.newInstance("Major");
             EventListFragment funEventPage =  EventListFragment.newInstance(getResources().getString(R.string.fun));
             switch (position) {
                 case 0:
