@@ -293,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                /*case R.id.favorites_menuItem:
+                                case R.id.myRegistrations_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                    */
+
                                 /*case R.id.sponsors_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
@@ -319,6 +319,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
+                                */
 
                                 case R.id.commitee_menuItem:
                                     new Handler().postDelayed(new Runnable() {
@@ -347,19 +348,25 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                */
+
                                 case R.id.myEvents_menuItem:
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            getSupportFragmentManager().popBackStackImmediate();
-                                            fragmentTransaction.replace(R.id.fragment_container, new MyEventsFragment());
-                                            appBarLayout.setExpanded(false, true);
-                                            fragmentTransaction.addToBackStack(null);
-                                            fragmentTransaction.commit();
-                                            collapsingToolbarLayout.setTitle("My Events");
-                                        }
-                                    }, DRAWER_DELAY);
+                                    userInfo = getSharedPreferences("userInfo",Context.MODE_PRIVATE);
+                                    String x = userInfo.getString("type","Guest");
+                                    if(x.equals("Event Organiser") || x.equals("Supervisor")) {
+                                        new Handler().postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                getSupportFragmentManager().popBackStackImmediate();
+                                                fragmentTransaction.replace(R.id.fragment_container, new MyEventsFragment());
+                                                appBarLayout.setExpanded(false, true);
+                                                fragmentTransaction.addToBackStack(null);
+                                                fragmentTransaction.commit();
+                                                collapsingToolbarLayout.setTitle("My Events");
+
+                                            }
+                                        }, DRAWER_DELAY);
+                                    }
+                                    else{Toast.makeText(MainActivity.this,"Guests cant organize an event :(",Toast.LENGTH_SHORT).show();}
                                     break;
                                 case R.id.contact_us_menuItem:
                                     new Handler().postDelayed(new Runnable() {

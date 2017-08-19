@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import spit.matrix2017.HelperClasses.Registration;
 import spit.matrix2017.R;
 
@@ -23,7 +26,8 @@ public class RegConfirm extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
     private DatabaseReference mPushDatabaseReference;
-    private SharedPreferences sp;
+    private SharedPreferences sp, myReg;
+    private SharedPreferences.Editor spa;
 
     private Button mButton;
 
@@ -46,6 +50,8 @@ public class RegConfirm extends AppCompatActivity {
         mButton.setClickable(false);
 
         sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        myReg = getSharedPreferences("myReg",Context.MODE_APPEND);
+        spa = myReg.edit();
 
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference().child("Registrations").child(getIntent().getStringExtra("name"));
@@ -81,6 +87,13 @@ public class RegConfirm extends AppCompatActivity {
 
                 mPushDatabaseReference.push().setValue(new Registration(name,email,from));
                 Toast.makeText(RegConfirm.this,"Registered!!",Toast.LENGTH_SHORT).show();
+
+                Set<String> str = new HashSet<String>();
+                str.addAll(myReg.getStringSet("myReg",str));
+
+                str.add(getIntent().getStringExtra("name"));
+                spa.putStringSet("myReg",str);
+
                 finish();
             }
         });

@@ -69,10 +69,33 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         admin = new ArrayList();
-        admin.add("asdfas");// and so on
+        admin.add("aditya.bhave41@gmail.com");
+        admin.add("kamyadesai97@gmail.com");
+        admin.add("hussain1605@gmail.com");
+        admin.add("himanshuj2205@gmail.com");
+        admin.add("pardeshi.vishwa25@gmail.com");
+        admin.add("sushmenkc179@gmail.com");
+        admin.add("riya.bakhtiani@gmail.com");
+        admin.add("ankur1096@gmail.com");
+        admin.add("deepamchavhan@gmail.com");
+        // and so on
+
+
 
         eventOrg = new ArrayList();
-        eventOrg.add("sdfasd");// and so on
+        eventOrg.add("techrace2k17@gmail.com");
+        eventOrg.add("virtualplacementm17@gmail.com");
+        eventOrg.add("zorbing.matrix@gmail.com");
+        eventOrg.add("lineseguidor@gmail.com");
+        eventOrg.add("spitlanmafia@gmail.com");
+        eventOrg.add("matrixvsm17@gmail.com");
+        eventOrg.add("iplauction2k17@gmail.com");
+        eventOrg.add("paperpresentation.matrix@gmail.com");
+        eventOrg.add("chaotichouse2k17@gmail.com");
+        eventOrg.add("lasertag1718@gmail.com");
+        eventOrg.add("spitmatrixlangaming@gmail.com");
+        eventOrg.add("codatron.matrix17@gmail.com");
+        eventOrg.add("mindthatword@gmail.com");// and so on
 
         userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
         sp = userInfo.edit();
@@ -88,10 +111,10 @@ public class LoginPage extends AppCompatActivity {
         //type = i.getStringExtra("type");
 
         if(admin.contains(email)){
-            type = "Head";
+            type = "Supervisor";
         }
-        else if(admin.contains(email)) {
-            type = "Admin";
+        else if(eventOrg.contains(email)) {
+            type = "Event Organiser";
         }
         else{
             type = "Guest";
