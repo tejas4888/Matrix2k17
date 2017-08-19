@@ -17,7 +17,7 @@ public class AddEvent2 extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
     String timings,venue,mail,name1,num1,name2,num2,prize,fee;
-    String name,url,desc,date;
+    String name,url,desc,date,eventCategory;
     EditText etimings,evenue,email,ename1,enum1,ename2,enum2,eprize,efee;
 
     @Override
@@ -50,6 +50,7 @@ public class AddEvent2 extends AppCompatActivity {
         url=intent.getStringExtra("url");
         desc=intent.getStringExtra("desc");
         date=intent.getStringExtra("date");
+        eventCategory=intent.getStringExtra("eventCategory");
 
         timings=etimings.getText().toString();
         venue=evenue.getText().toString();
@@ -61,7 +62,7 @@ public class AddEvent2 extends AppCompatActivity {
         prize=eprize.getText().toString();
         fee=efee.getText().toString();
 
-        mDatabaseReference.push().setValue(new Event(name,desc,url,date,timings,venue,mail,name1,name2,num1,num2,prize,fee));
+        mDatabaseReference.child(eventCategory).push().setValue(new Event(name,desc,url,date,timings,venue,mail,name1,name2,num1,num2,prize,fee));
         finish();
     }
 }

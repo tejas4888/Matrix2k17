@@ -184,28 +184,33 @@ public class MyEventsFragment extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     mEvents.clear();
-                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                        String dname = (String) snapshot.child("name").getValue();
-                        if(dname == null) {
-                            break;
-                        }
-                        String org = (String) snapshot.child("eventOrgMail").getValue();
-                        if(email.equals(org)){
-                            String description = (String) snapshot.child("description").getValue();
-                            String posterUrl = (String) snapshot.child("posterUrl").getValue();
-                            String dates = (String) snapshot.child("dates").getValue();
-                            String time = (String) snapshot.child("time").getValue();
-                            String venue = (String) snapshot.child("venue").getValue();
-                            String orgMail = (String) snapshot.child("eventOrgMail").getValue();
-                            String pocName1 = (String) snapshot.child("pocName1").getValue();
-                            String pocName2 = (String) snapshot.child("pocName2").getValue();
-                            String pocNumber1 = (String) snapshot.child("pocNumber1").getValue();
-                            String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
-                            String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
-                            String fees = (String) snapshot.child("fees").getValue(); //Calculated per person
+                    for(DataSnapshot snapshot2 : dataSnapshot.getChildren())
+                    {   //Added one more foreach as Mega,Major and Tech is added
+                        for(DataSnapshot snapshot:snapshot2.getChildren())
+                        {
+                            String dname = (String) snapshot.child("name").getValue();
+                            if (dname == null) {
+                                break;
+                            }
+                            String org = (String) snapshot.child("eventOrgMail").getValue();
+                            if (email.equals(org))
+                            {
+                                String description = (String) snapshot.child("description").getValue();
+                                String posterUrl = (String) snapshot.child("posterUrl").getValue();
+                                String dates = (String) snapshot.child("dates").getValue();
+                                String time = (String) snapshot.child("time").getValue();
+                                String venue = (String) snapshot.child("venue").getValue();
+                                String orgMail = (String) snapshot.child("eventOrgMail").getValue();
+                                String pocName1 = (String) snapshot.child("pocName1").getValue();
+                                String pocName2 = (String) snapshot.child("pocName2").getValue();
+                                String pocNumber1 = (String) snapshot.child("pocNumber1").getValue();
+                                String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
+                                String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
+                                String fees = (String) snapshot.child("fees").getValue(); //Calculated per person
 
-                            mEvents.add(new Event(dname, description, posterUrl, dates, time, venue,orgMail ,pocName1,
-                                    pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
+                                mEvents.add(new Event(dname, description, posterUrl, dates, time, venue, orgMail, pocName1,
+                                        pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
+                            }
                         }
                     }
                     updateUI();

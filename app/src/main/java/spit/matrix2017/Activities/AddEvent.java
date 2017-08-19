@@ -7,8 +7,11 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -19,13 +22,15 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.User;
 import spit.matrix2017.R;
 
 public class AddEvent extends AppCompatActivity {
 
-    String name,desc,date,time,venue,orgMail,pocName1,pocName2,pocNumber1,pocNumber2,prizeScheme,feeScheme;
+    String name,desc,date,eventCategory,time,venue,orgMail,pocName1,pocName2,pocNumber1,pocNumber2,prizeScheme,feeScheme;
     EditText edesc,edate,etime,evenue,eOrgMail,epocName1,epocName2,epocNumber1,epocNumber2,eprize,efees;
     EditText ename;
     ImageView poster;
@@ -33,6 +38,7 @@ public class AddEvent extends AppCompatActivity {
     DatabaseReference mDatabaseReference;
     private FirebaseStorage mFirebaseStorage;
     private StorageReference mStorageReference;
+    Spinner ecategoryspinner;
 
     String url = null;
 
@@ -46,6 +52,7 @@ public class AddEvent extends AppCompatActivity {
         ename = (EditText) findViewById(R.id.eventName);
         edesc = (EditText) findViewById(R.id.eventDescription);
         edate = (EditText) findViewById(R.id.eventDates);
+        ecategoryspinner = (Spinner) findViewById(R.id.eventCategorySpinner);
         /*etime = (EditText) findViewById(R.id.eventTime);
         evenue = (EditText) findViewById(R.id.eventVenue);
         eOrgMail = (EditText) findViewById(R.id.eventOrgMail);
@@ -64,6 +71,24 @@ public class AddEvent extends AppCompatActivity {
 
         mFirebaseStorage = FirebaseStorage.getInstance();
         mStorageReference = mFirebaseStorage.getReference().child("EventPosters");
+
+        final String eventTypes[]={"Mega","Major","Fun"};
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,eventTypes);
+        ecategoryspinner.setAdapter(adapter);
+
+        ecategoryspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int index=ecategoryspinner.getSelectedItemPosition();
+                eventCategory=eventTypes[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
 
@@ -132,6 +157,7 @@ public class AddEvent extends AppCompatActivity {
         intent.putExtra("url",url);
         intent.putExtra("desc",desc);
         intent.putExtra("date",date);
+        intent.putExtra("eventCategory",eventCategory);
         startActivity(intent);
 
         finish();
