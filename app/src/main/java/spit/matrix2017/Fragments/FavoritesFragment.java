@@ -228,7 +228,6 @@ public class FavoritesFragment extends Fragment {
 
             mItemDatabaseReference3.addValueEventListener(mValueEventListener);
 
-            updateUI();
             return null;
         }
     }

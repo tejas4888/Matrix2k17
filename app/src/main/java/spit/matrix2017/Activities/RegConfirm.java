@@ -93,6 +93,7 @@ public class RegConfirm extends AppCompatActivity {
 
                 str.add(getIntent().getStringExtra("name"));
                 spa.putStringSet("myReg",str);
+                spa.commit();
 
                 finish();
             }

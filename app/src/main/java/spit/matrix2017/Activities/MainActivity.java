@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
                                             fragmentTransaction.replace(R.id.fragment_container, new FavoritesFragment());
                                             appBarLayout.setExpanded(false, true);
                                             fragmentTransaction.addToBackStack(null).commit();
-                                            collapsingToolbarLayout.setTitle("Favorites");
+                                            collapsingToolbarLayout.setTitle("My Registrations");
                                         }
                                     }, DRAWER_DELAY);
                                     break;
