@@ -26,8 +26,8 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/colorPrimary"/>
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/event_daniel_fernandes"/>
                 <TextView
@@ -64,8 +64,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="10dp">
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/event_daniel_fernandes"/>
                     <TextView
@@ -79,10 +79,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginLeft="25dp">
+                        android:layout_marginLeft="15dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/event_daniel_fernandes"/>
@@ -99,8 +99,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="20dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/event_daniel_fernandes"/>
                         <TextView
@@ -140,8 +140,8 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="50dp">
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/event_daniel_fernandes"/>
                     <TextView
@@ -157,10 +157,10 @@
                     android:orientation="vertical"
                     android:layout_marginLeft="100dp">
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:src="@drawable/event_daniel_fernandes"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -198,8 +198,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="50dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/event_daniel_fernandes"/>
                         <TextView
@@ -215,8 +215,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="100dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/event_daniel_fernandes"/>
@@ -238,8 +238,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="50dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/event_daniel_fernandes"/>
                         <TextView
@@ -255,8 +255,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="100dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/event_daniel_fernandes"/>
@@ -287,8 +287,8 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/colorPrimary"/>
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/event_daniel_fernandes"/>
                 <TextView
@@ -326,8 +326,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="50dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/event_daniel_fernandes"/>
                         <TextView
@@ -343,8 +343,8 @@
                         android:orientation="vertical"
                         android:layout_marginLeft="100dp">
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/event_daniel_fernandes"/>

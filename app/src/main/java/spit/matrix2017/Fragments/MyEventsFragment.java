@@ -47,6 +47,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import spit.matrix2017.Activities.AddEvent;
+import spit.matrix2017.Activities.EditEvent;
 import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.Activities.MyRegistrations;
@@ -63,6 +64,7 @@ public class MyEventsFragment extends Fragment {
     ArrayList<Event> mEvents ;
     SharedPreferences userInfo;
     String email;
+    String key;
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mItemDatabaseReference;
@@ -139,6 +141,9 @@ public class MyEventsFragment extends Fragment {
 
                     @Override public void onLongItemClick(View view, int position) {
                         // do whatever
+                        Intent i = new Intent(getContext(), EditEvent.class);
+                        i.putExtra("key",key);
+                        startActivity(i);
                     }
                 })
         );
@@ -207,6 +212,8 @@ public class MyEventsFragment extends Fragment {
                                 String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
                                 String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
                                 String fees = (String) snapshot.child("fees").getValue(); //Calculated per person
+
+                                key = (String) snapshot.getKey();
 
                                 mEvents.add(new Event(dname, description, posterUrl, dates, time, venue, orgMail, pocName1,
                                         pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
