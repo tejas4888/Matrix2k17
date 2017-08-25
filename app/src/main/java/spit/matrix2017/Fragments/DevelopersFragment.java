@@ -38,6 +38,7 @@ public class DevelopersFragment extends Fragment {
 
     TextView email1, email2, email3, email4, email5, email6;
     TextView name1,name2;
+    TextView branch1,branch2;
     Button g1, g2, g3, g4, g5, g6, l1, l2, l3, l4, l5, l6;
     ImageView image1, image2, image3, image4, image5, image6;
 
@@ -60,10 +61,15 @@ public class DevelopersFragment extends Fragment {
         name1=(TextView)view.findViewById(R.id.name_Aditya);
         name2=(TextView)view.findViewById(R.id.name_Tejas);
 
+        branch1=(TextView)view.findViewById(R.id.branch_Aditya);
+        branch2=(TextView)view.findViewById(R.id.branch_Tejas);
+
         Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(),  "fonts/marketdeco.ttf");
 
         name1.setTypeface(custom_font);
         name2.setTypeface(custom_font);
+        branch1.setTypeface(custom_font);
+        branch2.setTypeface(custom_font);
 
         g1=(Button)view.findViewById(R.id.google_aditya);
         g2=(Button)view.findViewById(R.id.google_Tejas);

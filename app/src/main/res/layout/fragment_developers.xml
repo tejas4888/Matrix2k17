@@ -48,9 +48,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
+                            android:id="@+id/branch_Aditya"
                             android:textSize="16sp"
                             android:textColor="@color/card_background"
-                            android:text="3rd year, Comps"/>
+                            android:text="3rd year, Computer Engineering"/>
 
                         <TextView
                             android:id="@+id/emailId_Aditya"
@@ -140,9 +141,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
+                            android:id="@+id/branch_Tejas"
                             android:textSize="16sp"
                             android:textColor="@color/card_background"
-                            android:text="2nd year, Comps"/>
+                            android:text="2nd year, Computer Engineering"/>
 
                         <TextView
                             android:id="@+id/emailId_Tejas"
