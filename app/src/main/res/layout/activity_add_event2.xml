@@ -20,6 +20,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_timing_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_timings"
@@ -31,6 +33,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_venue_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_venue"
@@ -42,7 +46,9 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_organizeremail_TextInputLayout" >
             <EditText
                 android:id="@+id/event2_mail"
                 android:layout_width="match_parent"
@@ -53,6 +59,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_organizer1name_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_name1"
@@ -64,6 +72,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_organizer1contact_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_num1"
@@ -75,6 +85,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_organizer2name_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_name2"
@@ -86,6 +98,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_organizer2contact_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_num2"
@@ -97,6 +111,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_prizes_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_prize"
@@ -108,6 +124,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/addevent2_fee_TextInputLayout"
                 android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/event2_fee"

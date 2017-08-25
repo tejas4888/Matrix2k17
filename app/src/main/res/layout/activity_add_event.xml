@@ -11,14 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="8dp"
-            android:layout_marginTop="32dp"
-            android:weightSum="1">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp">
 
 
             <ImageView
@@ -41,6 +40,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                android:id="@+id/addevent_EventName_TextInputLayout"
                 android:layout_height="wrap_content">
 
                 <EditText
@@ -54,24 +54,26 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                android:id="@+id/addevent_EventDescription_TextInputLayout"
                 android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:hint="Description"
                 android:id="@+id/eventDescription"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                android:id="@+id/addevent_EventDate_TextInputLayout"
                 android:layout_height="wrap_content">
 
                 <EditText
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:hint="Date"
                 android:id="@+id/eventDates"/>
 
@@ -101,7 +103,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:text="Proceed-->"
-            android:onClick="addEvent"/>
+            android:onClick="addEvent"
+                android:layout_marginBottom="8dp"/>
 
         </LinearLayout>
     </ScrollView>

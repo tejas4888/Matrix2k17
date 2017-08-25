@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,6 +39,9 @@ public class AddEvent extends AppCompatActivity {
     ImageView poster;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
+
+    TextInputLayout nametextinputlayout,desctextinputlayout,datetextinputlayout;
+
     private FirebaseStorage mFirebaseStorage;
     private StorageReference mStorageReference;
     Spinner ecategoryspinner;
@@ -53,6 +59,11 @@ public class AddEvent extends AppCompatActivity {
         edesc = (EditText) findViewById(R.id.eventDescription);
         edate = (EditText) findViewById(R.id.eventDates);
         ecategoryspinner = (Spinner) findViewById(R.id.eventCategorySpinner);
+
+        nametextinputlayout = (TextInputLayout)findViewById(R.id.addevent_EventName_TextInputLayout);
+        desctextinputlayout = (TextInputLayout)findViewById(R.id.addevent_EventDescription_TextInputLayout);
+        datetextinputlayout = (TextInputLayout)findViewById(R.id.addevent_EventDate_TextInputLayout);
+
         /*etime = (EditText) findViewById(R.id.eventTime);
         evenue = (EditText) findViewById(R.id.eventVenue);
         eOrgMail = (EditText) findViewById(R.id.eventOrgMail);
@@ -144,6 +155,24 @@ public class AddEvent extends AppCompatActivity {
         pocNumber2 = epocNumber2.getText().toString();
         prizeScheme = eprize.getText().toString();
         feeScheme = efees.getText().toString();*/
+        nametextinputlayout.setErrorEnabled(false);
+        desctextinputlayout.setErrorEnabled(false);
+        datetextinputlayout.setErrorEnabled(false);
+
+        if(TextUtils.isEmpty(name))
+        {
+            nametextinputlayout.setError("Event name cannot be empty");
+            nametextinputlayout.setFocusable(true);
+            return;
+        }else if (TextUtils.isEmpty(desc))
+        {
+            desctextinputlayout.setError("Event description cannot be empty");
+            return;
+        }else if (TextUtils.isEmpty(date))
+        {
+            datetextinputlayout.setError("Date must be specified");
+            return;
+        }
 
         /*Hardcoded Poster*/
         if(url == null) {

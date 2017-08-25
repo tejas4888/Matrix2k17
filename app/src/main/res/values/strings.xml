@@ -147,4 +147,5 @@
     <string name="devTejasgoogle">https://plus.google.com/u/0/109695234997362404317</string>
     <string name="devTejaslinkedin">https://in.linkedin.com/in/tejas-chheda-678a18143</string>
 
+    <string name="notemptyfield">This field cannot be empty</string>
 </resources>
