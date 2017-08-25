@@ -17,6 +17,7 @@
 package spit.matrix2017.Fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,6 +37,7 @@ import spit.matrix2017.R;
 public class DevelopersFragment extends Fragment {
 
     TextView email1, email2, email3, email4, email5, email6;
+    TextView name1,name2;
     Button g1, g2, g3, g4, g5, g6, l1, l2, l3, l4, l5, l6;
     ImageView image1, image2, image3, image4, image5, image6;
 
@@ -51,42 +53,34 @@ public class DevelopersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_developers,container,false);
 
-        email1 =(TextView)view.findViewById(R.id.emailId_tejas);
-        email2 =(TextView)view.findViewById(R.id.emailId_adnan);
-        email3 =(TextView)view.findViewById(R.id.emailId_rohit);
-        email4 =(TextView)view.findViewById(R.id.emailId_mithil);
-        email5 =(TextView)view.findViewById(R.id.emailId_akshay);
-        email6 =(TextView)view.findViewById(R.id.emailId_shubham);
 
-        g1 =(Button)view.findViewById(R.id.google_tejas);
-        g2 =(Button)view.findViewById(R.id.google_adnan);
-        g3 =(Button)view.findViewById(R.id.google_rohit);
-        g4 =(Button)view.findViewById(R.id.google_mithil);
-        g5 =(Button)view.findViewById(R.id.google_akshay);
-        g6 =(Button)view.findViewById(R.id.google_shubham);
+        email1=(TextView)view.findViewById(R.id.emailId_Aditya);
+        email2=(TextView)view.findViewById(R.id.emailId_Tejas);
 
-        l1=(Button) view.findViewById(R.id.linkedin_tejas);
-        l2=(Button) view.findViewById(R.id.linkedin_adnan);
-        l3=(Button) view.findViewById(R.id.linkedin_rohit);
-        l4=(Button) view.findViewById(R.id.linkedin_mithil);
-        l5=(Button) view.findViewById(R.id.linkedin_akshay);
-        l6=(Button) view.findViewById(R.id.linkedin_shubham);
+        name1=(TextView)view.findViewById(R.id.name_Aditya);
+        name2=(TextView)view.findViewById(R.id.name_Tejas);
 
-        image1 = (ImageView)view.findViewById(R.id.pic_tejas);
-        image2 =(ImageView)view.findViewById(R.id.pic_adnan);
-        image3 =(ImageView)view.findViewById(R.id.pic_rohit);
-        image4 =(ImageView)view.findViewById(R.id.pic_mithil);
-        image5 =(ImageView)view.findViewById(R.id.pic_akshay);
-        image6 =(ImageView)view.findViewById(R.id.pic_shubham);
+        Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(),  "fonts/marketdeco.ttf");
+
+        name1.setTypeface(custom_font);
+        name2.setTypeface(custom_font);
+
+        g1=(Button)view.findViewById(R.id.google_aditya);
+        g2=(Button)view.findViewById(R.id.google_Tejas);
+
+
+        l1=(Button)view.findViewById(R.id.linkedin_aditya);
+        l2=(Button)view.findViewById(R.id.linkedin_Tejas);
+
+
+        image1=(ImageView)view.findViewById(R.id.pic_Aditya);
+        image2=(ImageView)view.findViewById(R.id.pic_Tejas);
 
 
         /*Add Your Pics Here And Not In Xml*/
-        Picasso.with(getActivity()).load(R.drawable.dev_tejas_bhitle).into(image1);
-        Picasso.with(getActivity()).load(R.drawable.dev_adnan_ansari).into(image2);
-        Picasso.with(getActivity()).load(R.drawable.dev_rohit_nahata).into(image3);
-        Picasso.with(getActivity()).load(R.drawable.dev_mithil_gotarne).into(image4);
-        Picasso.with(getActivity()).load(R.drawable.dev_akshay_shah).into(image5);
-        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image6);
+        Picasso.with(getActivity()).load(R.drawable.event_daniel_fernandes).into(image1);
+        Picasso.with(getActivity()).load(R.drawable.dev_tejas_chheda).into(image2);
+
 
 
         View.OnClickListener linkListener = new View.OnClickListener() {
@@ -96,46 +90,23 @@ public class DevelopersFragment extends Fragment {
                 switch (v.getId()){
 
                     /*Google+ links*/
-                    case R.id.google_tejas:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_tejas));
+                    case R.id.google_Tejas:
+                        uri=Uri.parse(getResources().getString(R.string.devTejasgoogle));
                         break;
-                    case R.id.google_adnan:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_adnan));
+                    case R.id.google_aditya:
+                        uri=Uri.parse(getResources().getString(R.string.devAdityagoogle));
                         break;
-                    case R.id.google_rohit:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_rohit));
-                        break;
-                    case R.id.google_mithil:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_mithil));
-                        break;
-                    case R.id.google_akshay:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_akshay));
-                        break;
-                    case R.id.google_shubham:
-                        uri=Uri.parse(getResources().getString(R.string.googleplus_shubham));
-                        break;
+
 
                     /*LInkedin Links*/
-                    case R.id.linkedin_tejas:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_tejas));
+                    case R.id.linkedin_Tejas:
+                        uri=Uri.parse(getResources().getString(R.string.devTejaslinkedin));
                         break;
-                    case R.id.linkedin_adnan:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_adnan));
-                        break;
-                    case R.id.linkedin_rohit:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_rohit));
-                        break;
-                    case R.id.linkedin_mithil:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_mithil));
-                        break;
-                    case R.id.linkedin_akshay:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_akshay));
-                        break;
-                    case R.id.linkedin_shubham:
-                        uri=Uri.parse(getResources().getString(R.string.linkedin_shubham));
+                    case R.id.linkedin_aditya:
+                        uri=Uri.parse(getResources().getString(R.string.devAdityalinkedin));
                         break;
 
-                    default:uri =Uri.parse(getResources().getString(R.string.linkedin_tejas));
+                    default:uri =Uri.parse(getResources().getString(R.string.devTejaslinkedin));
                 }
                 Intent i = new Intent(Intent.ACTION_VIEW,uri);
                 try{
@@ -154,24 +125,13 @@ public class DevelopersFragment extends Fragment {
             String to="";
             switch (v.getId()){
                 /*Email Ids*/
-                case R.id.emailId_tejas:
-                    to = getResources().getString(R.string.email_tejas);
+                case R.id.emailId_Tejas:
+                    to = getResources().getString(R.string.devTejasemail);
                     break;
-                case R.id.emailId_adnan:
-                    to = getResources().getString(R.string.email_adnan);
+                case R.id.emailId_Aditya:
+                    to = getResources().getString(R.string.devAdityaemail);
                     break;
-                case R.id.emailId_rohit:
-                    to = getResources().getString(R.string.email_rohit);
-                    break;
-                case R.id.emailId_mithil:
-                    to = getResources().getString(R.string.email_mithil);
-                    break;
-                case R.id.emailId_akshay:
-                    to = getResources().getString(R.string.email_akshay);
-                    break;
-                case R.id.emailId_shubham:
-                    to = getResources().getString(R.string.email_shubham);
-                    break;
+
             }
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SENDTO);
@@ -188,22 +148,12 @@ public class DevelopersFragment extends Fragment {
         };
         email1.setOnClickListener(emailListener);
         email2.setOnClickListener(emailListener);
-        email3.setOnClickListener(emailListener);
-        email4.setOnClickListener(emailListener);
-        email5.setOnClickListener(emailListener);
-        email6.setOnClickListener(emailListener);
+
         g1.setOnClickListener(linkListener);
         g2.setOnClickListener(linkListener);
-        g3.setOnClickListener(linkListener);
-        g4.setOnClickListener(linkListener);
-        g5.setOnClickListener(linkListener);
-        g6.setOnClickListener(linkListener);
+
         l1.setOnClickListener(linkListener);
         l2.setOnClickListener(linkListener);
-        l3.setOnClickListener(linkListener);
-        l4.setOnClickListener(linkListener);
-        l5.setOnClickListener(linkListener);
-        l6.setOnClickListener(linkListener);
 
         return view;
     }

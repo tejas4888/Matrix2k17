@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#C62828</color>
     <color name="colorAccent">#BDBDBD</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="linkedIn_blue">#0077B5</color>
+    <color name="developer_card_color">#A9A9A9</color>
     <color name="background">#EEEEEE</color>
     <color name="card_background">#FAFAFA</color>
     <color name="primary_text">#212121</color>

@@ -139,4 +139,12 @@
     <string name="date">15th and 16th Feb 2017</string>
     <string name="title_activity_edit_event">EditEvent</string>
 
+
+    <string name="devAdityaemail">adityabhave@gmail.com</string>
+    <string name="devAdityagoogle">https://plus.google.com/u/0/109035460662288063356</string>
+    <string name="devAdityalinkedin">https://www.linkedin.com/in/aditya-bhave-235765128</string>
+    <string name="devTejasemail">tejas4888@gmail.com</string>
+    <string name="devTejasgoogle">https://plus.google.com/u/0/109695234997362404317</string>
+    <string name="devTejaslinkedin">https://in.linkedin.com/in/tejas-chheda-678a18143</string>
+
 </resources>
