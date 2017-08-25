@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
+        navigationView.getMenu().getItem(0).setChecked(true);
         View headerview=navigationView.getHeaderView(0);
         navDrawerUsername=(TextView)headerview.findViewById(R.id.NavigationDrawer_Username);
         navDrawerUseremailid = (TextView)headerview.findViewById(R.id.NavigationDrawer_UserEmail);
@@ -416,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     i = 1;
+                                                    navigationView.getMenu().getItem(0).setChecked(true);
                                                 }
                                             });
 
