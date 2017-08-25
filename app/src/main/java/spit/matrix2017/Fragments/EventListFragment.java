@@ -16,12 +16,16 @@
 
 package spit.matrix2017.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
@@ -35,6 +39,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,6 +51,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import spit.matrix2017.Activities.EventDetails;
+import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
 import spit.matrix2017.HelperClasses.Feedback;
@@ -61,6 +68,7 @@ public class EventListFragment extends Fragment{
     //MatrixContentProvider matrixContentProvider;
     private String category ="";
 
+    ProgressDialog progressDialog;
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mItemDatabaseReference;
@@ -84,6 +92,31 @@ public class EventListFragment extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        progressDialog=new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
+
+        ConnectivityManager conMan = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        //mobile
+        NetworkInfo.State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+
+        //wifi
+        NetworkInfo.State wifi = conMan.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+
+        if (mobile == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTED) {
+
+        } else  {
+           try {
+               Snackbar.make(getActivity().findViewById(R.id.navigation_view),"No Internet Connection",Snackbar.LENGTH_LONG).show();
+           }catch (Exception e)
+           {           }
+
+            Toast.makeText(getActivity(),"Unable to fetch latest data",Toast.LENGTH_SHORT).show();
+
+            progressDialog.hide();
+        }
+
         Bundle bundle = this.getArguments();
         if(bundle != null)
             category = bundle.getString("data");
@@ -105,9 +138,6 @@ public class EventListFragment extends Fragment{
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
-
 
 
         mRecyclerView.addOnItemTouchListener(
@@ -175,6 +205,7 @@ public class EventListFragment extends Fragment{
         evl = new EventListAdapter(getContext(),mEvents);
         mRecyclerView.setAdapter(evl);
         mRecyclerView.scrollToPosition(0);
+        progressDialog.hide();
     }
 
     public class FetchEventList extends AsyncTask<Void,Void,ArrayList<Event>> {
