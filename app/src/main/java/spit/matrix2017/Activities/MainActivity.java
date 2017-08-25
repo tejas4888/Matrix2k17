@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -39,8 +40,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -112,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private ValueEventListener mValueEventListener;
     private DatabaseReference mPushDatabaseReference;
 
+    TextView navDrawerUsername,navDrawerUseremailid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,8 +142,21 @@ public class MainActivity extends AppCompatActivity {
         sp = userInfo.edit();
         firstTime = getSharedPreferences("firstTime",Context.MODE_APPEND);
 
-
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+        navigationView =(NavigationView)findViewById(R.id.navigation_view);
+        View headerview=navigationView.getHeaderView(0);
+        navDrawerUsername=(TextView)headerview.findViewById(R.id.NavigationDrawer_Username);
+        navDrawerUseremailid = (TextView)headerview.findViewById(R.id.NavigationDrawer_UserEmail);
+
+        //SharedPreferences.Editor editor=sp
+        //user=mFirebaseAuth.getCurrentUser();
+        //SharedPreferences sharedPreferences=getSharedPreferences("userInfo",Context.MODE_PRIVATE);
+
+        //navDrawerUsername.setText(sharedPreferences.getString("name","raju"));
+        //navDrawerUseremailid.setText(sharedPreferences.getString("email","rajes"));
+        //navDrawerUsername.setText((String)user.getDisplayName());
+        //navDrawerUseremailid.setText((String)user.getEmail());
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -147,11 +165,13 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
 
                     // Code to save userdata
-
+                    Log.v("Userdetails",user.getDisplayName()+" "+user.getEmail());
                     sp.putString("name",user.getDisplayName());
                     sp.putString("email",user.getEmail());
                     sp.putString("profile",user.getPhotoUrl().toString());
                     sp.putString("UID",user.getUid());
+                    navDrawerUsername.setText((String)user.getDisplayName());
+                    navDrawerUseremailid.setText((String)user.getEmail());
                     sp.commit();
 
                     Email = user.getEmail();
@@ -175,11 +195,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-
-
-
-
         //ViewPager
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (CustomViewPager) findViewById(R.id.viewpager_main);
@@ -201,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
-        navigationView =(NavigationView)findViewById(R.id.navigation_view);
+        //navigationView =(NavigationView)findViewById(R.id.navigation_view);
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
         collapsingToolbarLayout= (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_main);
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
