@@ -45,7 +45,7 @@ public class GiveFeedback extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.8));
+        getWindow().setLayout((int)(width*0.85),(int)(height*0.5));
 
        // mRating = (EditText) findViewById(R.id.rating) ;
         mFeedback = (EditText) findViewById(R.id.feedback);

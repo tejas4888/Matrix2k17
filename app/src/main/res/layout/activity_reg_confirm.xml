@@ -6,15 +6,34 @@
     android:layout_height="match_parent"
     tools:context="spit.matrix2017.Activities.RegConfirm">
 
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register for the Event:"
+        android:id="@+id/registerforeventtext"
+        android:textSize="24dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABC"
+        android:textSize="32dp"
+        android:textColor="@color/primary_text"
+        android:id="@+id/registerforevent_eventname"
+        android:layout_below="@+id/registerforeventtext"
+        android:layout_centerInParent="true"/>
+
     <Button
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Confirm"
         android:id="@+id/regButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="150dp"
         android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/card_background"/>
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,7 @@ public class RegConfirm extends AppCompatActivity {
     private SharedPreferences.Editor spa;
 
     private Button mButton;
+    TextView eventname;
 
     private String email;
 
@@ -44,9 +46,11 @@ public class RegConfirm extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.8));
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.5));
 
         mButton = (Button) findViewById(R.id.regButton);
+        eventname = (TextView)findViewById(R.id.registerforevent_eventname);
+        eventname.setText(getIntent().getStringExtra("name"));
         mButton.setClickable(false);
 
         sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);

@@ -7,8 +7,17 @@
     tools:context="spit.matrix2017.Activities.GiveFeedback"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_marginTop="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Feedback"
+        android:textSize="24dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center_horizontal"/>
+
     <com.hsalf.smilerating.SmileRating
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rating_smilebar"/>
@@ -21,7 +30,7 @@
         android:id="@+id/feedback"/>
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Go On"
         android:layout_gravity="bottom"
