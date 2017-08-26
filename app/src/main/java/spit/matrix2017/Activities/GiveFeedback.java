@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hsalf.smilerating.SmileRating;
 
 import spit.matrix2017.HelperClasses.Feedback;
 import spit.matrix2017.HelperClasses.Registration;
@@ -28,6 +29,8 @@ public class GiveFeedback extends AppCompatActivity {
     private SharedPreferences sp;
 
     private Button mButton;
+    SmileRating rating_smilebar;
+    int smilebarrating=3;
     EditText mRating,mFeedback;
     private String email;
 
@@ -44,8 +47,35 @@ public class GiveFeedback extends AppCompatActivity {
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.8));
 
-        mRating = (EditText) findViewById(R.id.rating) ;
+       // mRating = (EditText) findViewById(R.id.rating) ;
         mFeedback = (EditText) findViewById(R.id.feedback);
+
+        rating_smilebar = (SmileRating) findViewById(R.id.rating_smilebar);
+        rating_smilebar.setSelectedSmile(SmileRating.GOOD);
+
+        rating_smilebar.setOnSmileySelectionListener(new SmileRating.OnSmileySelectionListener() {
+            @Override
+            public void onSmileySelected(int smiley, boolean reselected) {
+                switch (smiley)
+                {
+                    case SmileRating.TERRIBLE:
+                        smilebarrating=0;
+                        break;
+                    case SmileRating.BAD:
+                        smilebarrating=1;
+                        break;
+                    case SmileRating.OKAY:
+                        smilebarrating=2;
+                        break;
+                    case SmileRating.GOOD:
+                        smilebarrating=3;
+                        break;
+                    case SmileRating.GREAT:
+                        smilebarrating=4;
+                        break;
+                }
+            }
+        });
 
         mButton = (Button) findViewById(R.id.rateConfirm);
         mButton.setClickable(false);
@@ -81,7 +111,8 @@ public class GiveFeedback extends AppCompatActivity {
             public void onClick(View v) {
                 String rating,feedback,email;
                 email = sp.getString("email",null);
-                rating = mRating.getText().toString();
+                //rating = mRating.getText().toString();
+                rating=String.valueOf(smilebarrating);
                 feedback = mFeedback.getText().toString();
 
                 mPushDatabaseReference.push().setValue(new Feedback(feedback,rating,email));

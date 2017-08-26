@@ -7,14 +7,11 @@
     tools:context="spit.matrix2017.Activities.GiveFeedback"
     android:orientation="vertical">
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:id="@+id/rating"
-        android:hint="out of 5"
-        android:textSize="24sp"
-        android:inputType="number"
-        android:layout_marginTop="100dp" />
+    <com.hsalf.smilerating.SmileRating
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating_smilebar"/>
 
     <EditText
         android:layout_width="400dp"
