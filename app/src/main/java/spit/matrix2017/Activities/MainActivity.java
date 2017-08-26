@@ -458,9 +458,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             //case R.id.follow_us:
               //  return true;
-            case R.id.menu_visit_website:
-                uri = Uri.parse(getResources().getString(R.string.matrix_website));
-                break;
+            //case R.id.menu_visit_website:
+              //  uri = Uri.parse(getResources().getString(R.string.matrix_website));
+                //break;
             case R.id.menu_follow_facebook:
                 uri = Uri.parse(getResources().getString(R.string.matrix_fb_link));
                 break;

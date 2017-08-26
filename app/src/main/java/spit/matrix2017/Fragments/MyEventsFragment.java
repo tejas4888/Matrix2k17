@@ -107,11 +107,12 @@ public class MyEventsFragment extends Fragment {
                     @Override
                     public void onItemClick(View view, int position) {
                         // do whatever
+                        String x = userInfo.getString("type","Guest");
+                        if(x.equals("Event Orgniser") || x.equals("Supervisor") ) {
+                            Event event = mEvents.get(position);
+                            Intent i = new Intent(getContext(), MyRegistrations.class);
 
-                        Event event = mEvents.get(position);
-                        Intent i = new Intent(getContext(), MyRegistrations.class);
-
-                        i.putExtra("name", event.getName());
+                            i.putExtra("name", event.getName());
                         /*i.putExtra("image",event.getPosterUrl());
                         i.putExtra("description", event.getDescription());
                         i.putExtra("venue", event.getVenue());
@@ -123,7 +124,8 @@ public class MyEventsFragment extends Fragment {
                         i.putExtra("contact2name", event.getPocName2());
                         i.putExtra("contact2no", event.getPocNumber2());*/
 
-                        startActivity(i);
+                            startActivity(i);
+                        }
 
                         /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                             ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
@@ -199,7 +201,7 @@ public class MyEventsFragment extends Fragment {
                     for(DataSnapshot snapshot2 : dataSnapshot.getChildren())
                     {   //Added one more foreach as Mega,Major and Tech is added
 
-                        if(userInfo.getString("type","guest").equals("Supervisor")){
+                        if(userInfo.getString("type","Guest").equals("Supervisor")){
 
                             for (DataSnapshot snapshot : snapshot2.getChildren()) {
                                 String dname = (String) snapshot.child("name").getValue();

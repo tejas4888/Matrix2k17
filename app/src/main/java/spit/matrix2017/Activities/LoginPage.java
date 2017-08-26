@@ -69,20 +69,17 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         admin = new ArrayList();
-        admin.add("aditya.bhave41@gmail.com");
+        //admin.add("aditya.bhave41@gmail.com");
         admin.add("kamyadesai97@gmail.com");
-        admin.add("hussain1605@gmail.com");
-        admin.add("himanshuj2205@gmail.com");
-        admin.add("pardeshi.vishwa25@gmail.com");
         admin.add("sushmenkc179@gmail.com");
         admin.add("riya.bakhtiani@gmail.com");
-        admin.add("ankur1096@gmail.com");
-        admin.add("deepamchavhan@gmail.com");
+        admin.add("ashnehete@gmail.com");
         // and so on
 
 
 
         eventOrg = new ArrayList();
+        eventOrg.add("aditya.bhave41@gmail.com");
         eventOrg.add("techrace2k17@gmail.com");
         eventOrg.add("virtualplacementm17@gmail.com");
         eventOrg.add("zorbing.matrix@gmail.com");
