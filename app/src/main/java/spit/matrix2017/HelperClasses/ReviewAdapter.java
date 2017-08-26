@@ -43,7 +43,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         Feedback f = feedbacks.get(position);
         holder.emailtext.setText(f.getEmail());
         holder.feedbacktext.setText(f.getFeedback());
-        holder.ratingtext.setText(f.getRating() + "/5");
 
         int rating=Integer.parseInt(f.getRating());
 
@@ -71,7 +70,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
             super(itemView);
 
             emailtext=(TextView)itemView.findViewById(R.id.review_email);
-            ratingtext=(TextView)itemView.findViewById(R.id.review_rating);
             feedbacktext=(TextView)itemView.findViewById(R.id.review_review);
             reviewcontainer=(CardView)itemView.findViewById(R.id.review_cardcontainer);
             rating_smilerating=(SmileRating)itemView.findViewById(R.id.review_rating_smilebar);
