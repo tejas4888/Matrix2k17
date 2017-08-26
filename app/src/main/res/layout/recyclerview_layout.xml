@@ -11,15 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/blank_textview"
+    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="246dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/no_favorites_text"
-        android:textSize="20dp"
-        android:textColor="@color/secondary_text"
-        android:visibility="gone"/>
+        android:id="@+id/evlpg"/>
 
 </RelativeLayout>

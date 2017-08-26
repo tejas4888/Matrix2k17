@@ -37,6 +37,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -141,9 +142,15 @@ public class MyEventsFragment extends Fragment {
 
                     @Override public void onLongItemClick(View view, int position) {
                         // do whatever
-                        Intent i = new Intent(getContext(), EditEvent.class);
-                        i.putExtra("key",key);
-                        startActivity(i);
+                        if(userInfo.getString("type","Guest").equals("Event Orgniser")){
+                            Intent i = new Intent(getContext(), EditEvent.class);
+                            i.putExtra("key",key);
+                            startActivity(i);
+                        }
+                        else {
+                            Toast.makeText(getContext(),"Only organisers can edit events",Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 })
         );
@@ -191,15 +198,15 @@ public class MyEventsFragment extends Fragment {
                     mEvents.clear();
                     for(DataSnapshot snapshot2 : dataSnapshot.getChildren())
                     {   //Added one more foreach as Mega,Major and Tech is added
-                        for(DataSnapshot snapshot:snapshot2.getChildren())
-                        {
-                            String dname = (String) snapshot.child("name").getValue();
-                            if (dname == null) {
-                                break;
-                            }
-                            String org = (String) snapshot.child("eventOrgMail").getValue();
-                            if (email.equals(org))
-                            {
+
+                        if(userInfo.getString("type","guest").equals("Supervisor")){
+
+                            for (DataSnapshot snapshot : snapshot2.getChildren()) {
+                                String dname = (String) snapshot.child("name").getValue();
+                                if (dname == null) {
+                                    break;
+                                }
+                                String org = (String) snapshot.child("eventOrgMail").getValue();
                                 String description = (String) snapshot.child("description").getValue();
                                 String posterUrl = (String) snapshot.child("posterUrl").getValue();
                                 String dates = (String) snapshot.child("dates").getValue();
@@ -216,7 +223,37 @@ public class MyEventsFragment extends Fragment {
                                 key = (String) snapshot.getKey();
 
                                 mEvents.add(new Event(dname, description, posterUrl, dates, time, venue, orgMail, pocName1,
-                                        pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
+                                            pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
+
+                            }
+                        }
+
+                        else {
+                            for (DataSnapshot snapshot : snapshot2.getChildren()) {
+                                String dname = (String) snapshot.child("name").getValue();
+                                if (dname == null) {
+                                    break;
+                                }
+                                String org = (String) snapshot.child("eventOrgMail").getValue();
+                                if (email.equals(org)) {
+                                    String description = (String) snapshot.child("description").getValue();
+                                    String posterUrl = (String) snapshot.child("posterUrl").getValue();
+                                    String dates = (String) snapshot.child("dates").getValue();
+                                    String time = (String) snapshot.child("time").getValue();
+                                    String venue = (String) snapshot.child("venue").getValue();
+                                    String orgMail = (String) snapshot.child("eventOrgMail").getValue();
+                                    String pocName1 = (String) snapshot.child("pocName1").getValue();
+                                    String pocName2 = (String) snapshot.child("pocName2").getValue();
+                                    String pocNumber1 = (String) snapshot.child("pocNumber1").getValue();
+                                    String pocNumber2 = (String) snapshot.child("pocNumber2").getValue();
+                                    String prizeScheme = (String) snapshot.child("prizeScheme").getValue();
+                                    String fees = (String) snapshot.child("fees").getValue(); //Calculated per person
+
+                                    key = (String) snapshot.getKey();
+
+                                    mEvents.add(new Event(dname, description, posterUrl, dates, time, venue, orgMail, pocName1,
+                                            pocName2, pocNumber1, pocNumber2, prizeScheme, fees));
+                                }
                             }
                         }
                     }

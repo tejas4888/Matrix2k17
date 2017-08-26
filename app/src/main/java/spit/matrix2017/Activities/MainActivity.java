@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
                 user = mFirebaseAuth.getCurrentUser();
                 Toast.makeText(MainActivity.this,"Registering!",Toast.LENGTH_SHORT);
-                Intent i = new Intent(MainActivity.this, LoginPage.class);
+                Intent i = new Intent(MainActivity.this, SignInVideo.class);
                 i.putExtra("name", user.getDisplayName());
                 i.putExtra("email", user.getEmail());
                 i.putExtra("profile", user.getPhotoUrl().toString());

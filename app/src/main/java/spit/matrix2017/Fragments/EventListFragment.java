@@ -39,6 +39,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -68,7 +69,6 @@ public class EventListFragment extends Fragment{
     //MatrixContentProvider matrixContentProvider;
     private String category ="";
 
-    ProgressDialog progressDialog;
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mItemDatabaseReference;
@@ -77,6 +77,7 @@ public class EventListFragment extends Fragment{
     private EventListAdapter evl;
 
     private ArrayList<Event> mEvents;
+    private ProgressBar pg;
 
     public static EventListFragment newInstance(String category){
         EventListFragment fragment = new EventListFragment();
@@ -92,9 +93,6 @@ public class EventListFragment extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        progressDialog=new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading");
-        progressDialog.show();
 
         ConnectivityManager conMan = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -113,8 +111,7 @@ public class EventListFragment extends Fragment{
            {           }
 
             Toast.makeText(getActivity(),"Unable to fetch latest data",Toast.LENGTH_SHORT).show();
-
-            progressDialog.hide();
+            pg.setVisibility(View.GONE);
         }
 
         Bundle bundle = this.getArguments();
@@ -138,6 +135,9 @@ public class EventListFragment extends Fragment{
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        pg = (ProgressBar) view.findViewById(R.id.evlpg);
+
 
 
         mRecyclerView.addOnItemTouchListener(
@@ -205,7 +205,7 @@ public class EventListFragment extends Fragment{
         evl = new EventListAdapter(getContext(),mEvents);
         mRecyclerView.setAdapter(evl);
         mRecyclerView.scrollToPosition(0);
-        progressDialog.hide();
+        pg.setVisibility(View.GONE);
     }
 
     public class FetchEventList extends AsyncTask<Void,Void,ArrayList<Event>> {

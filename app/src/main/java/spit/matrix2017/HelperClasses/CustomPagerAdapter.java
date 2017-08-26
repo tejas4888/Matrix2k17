@@ -31,9 +31,9 @@ public class CustomPagerAdapter extends PagerAdapter {
     private LayoutInflater mLayoutInflater;
 
     private int[] mResources = {
-            R.drawable.viewpager_1,
-            R.drawable.viewpager_2,
-            R.drawable.viewpager_3
+            R.drawable.signinbg,
+            R.drawable.signinbg,
+            R.drawable.signinbg
     };
 
     public CustomPagerAdapter(Context context) {

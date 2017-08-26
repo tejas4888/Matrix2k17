@@ -95,7 +95,10 @@ public class LoginPage extends AppCompatActivity {
         eventOrg.add("lasertag1718@gmail.com");
         eventOrg.add("spitmatrixlangaming@gmail.com");
         eventOrg.add("codatron.matrix17@gmail.com");
-        eventOrg.add("mindthatword@gmail.com");// and so on
+        eventOrg.add("mindthatword@gmail.com");
+        eventOrg.add("Matrix2k17.zk@gmail.com");
+        eventOrg.add("humanfoosball2017@gmail.com");
+        eventOrg.add("robowars.matrix@gmail.com");// and so on
 
         userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
         sp = userInfo.edit();
