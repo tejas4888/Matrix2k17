@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.hsalf.smilerating.SmileRating;
+
 import java.util.ArrayList;
 
 import spit.matrix2017.R;
@@ -43,6 +45,14 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         holder.feedbacktext.setText(f.getFeedback());
         holder.ratingtext.setText(f.getRating() + "/5");
 
+        int rating=Integer.parseInt(f.getRating());
+
+        if (rating>=0 && rating<=4)
+        {
+            holder.rating_smilerating.setSelectedSmile(rating);
+        } else {
+            holder.rating_smilerating.setSelectedSmile(4);
+        }
 
     }
 
@@ -54,6 +64,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     static class ReviewViewHolder extends RecyclerView.ViewHolder{
 
         TextView emailtext,ratingtext,feedbacktext;
+        SmileRating rating_smilerating;
         CardView reviewcontainer;
 
         public ReviewViewHolder(View itemView) {
@@ -63,6 +74,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
             ratingtext=(TextView)itemView.findViewById(R.id.review_rating);
             feedbacktext=(TextView)itemView.findViewById(R.id.review_review);
             reviewcontainer=(CardView)itemView.findViewById(R.id.review_cardcontainer);
+            rating_smilerating=(SmileRating)itemView.findViewById(R.id.review_rating_smilebar);
         }
     }
 }
