@@ -84,7 +84,7 @@ public class DevelopersFragment extends Fragment {
 
 
         /*Add Your Pics Here And Not In Xml*/
-        //Picasso.with(getActivity()).load(R.drawable.event_daniel_fernandes).into(image1);
+        Picasso.with(getActivity()).load(R.drawable.tech_aditya).into(image1);
         Picasso.with(getActivity()).load(R.drawable.dev_tejas_chheda).into(image2);
 
 

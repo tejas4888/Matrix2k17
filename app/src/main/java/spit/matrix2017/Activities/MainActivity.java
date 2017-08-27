@@ -177,9 +177,6 @@ public class MainActivity extends AppCompatActivity {
 
                     Email = user.getEmail();
 
-                    String x = "Welcome to the future " + user.getDisplayName();
-                    Toast.makeText(MainActivity.this, x ,Toast.LENGTH_SHORT).show();
-
 
                 }
                 else {

@@ -29,7 +29,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/cp"/>
+                    android:id="@+id/cp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/vcp_kamya"/>
+                        android:id="@+id/vcp1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/vcp_ashish"/>
+                            android:id="@+id/vcp2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -102,7 +102,8 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/vcp_sushmen"/>
+                            android:id="@+id/vcp3"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -143,7 +144,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/tech_aditya"/>
+                        android:id="@+id/tech1"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -161,7 +162,7 @@
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/tech_aashish"/>
+                        android:id="@+id/tech2"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -201,7 +202,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/hoes_jainam"/>
+                            android:id="@+id/hoes1"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -219,7 +220,7 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/hoes_vishwa"/>
+                            android:id="@+id/hoes2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -241,7 +242,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/hoes_saral"/>
+                            android:id="@+id/hoes3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -259,11 +260,11 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/hoes_shreya"/>
+                            android:id="@+id/hoes4"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aashish Nehete\n    TE IT"
+                            android:text="Shreya Gupta\n    TE ETRX"
                             android:textSize="15sp"
                             android:layout_gravity="end"/>
                     </LinearLayout>
@@ -290,7 +291,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/creative"/>
+                    android:id="@+id/creative" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -329,7 +330,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/admin_vinit"/>
+                            android:id="@+id/admin1"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -347,7 +348,7 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/admin_gagan"/>
+                            android:id="@+id/admin2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -387,7 +388,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/security_deepam"/>
+                            android:id="@+id/security1"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -405,7 +406,7 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/security_ninad"/>
+                            android:id="@+id/security2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -445,7 +446,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/hop_ankur"/>
+                            android:id="@+id/hop1"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -463,7 +464,7 @@
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginLeft="20dp"
-                            android:src="@drawable/hop_aastha"/>
+                            android:id="@+id/hop2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -480,7 +481,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/hop_himanshu"/>
+                            android:id="@+id/hop3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

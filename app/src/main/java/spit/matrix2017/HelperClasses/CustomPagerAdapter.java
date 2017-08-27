@@ -24,6 +24,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
+import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.R;
 
 public class CustomPagerAdapter extends PagerAdapter {
@@ -31,9 +35,9 @@ public class CustomPagerAdapter extends PagerAdapter {
     private LayoutInflater mLayoutInflater;
 
     private int[] mResources = {
-            R.drawable.signinbg,
-            R.drawable.signinbg,
-            R.drawable.signinbg
+            R.drawable.viewpager_1,
+            R.drawable.viewpager_22,
+            R.drawable.viewpager_33
     };
 
     public CustomPagerAdapter(Context context) {
@@ -56,8 +60,8 @@ public class CustomPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.viewpager_image);
+        //Picasso.with(mContext).load(mResources[position]).into(imageView);
         imageView.setImageResource(mResources[position]);
-
         container.addView(itemView);
 
         return itemView;

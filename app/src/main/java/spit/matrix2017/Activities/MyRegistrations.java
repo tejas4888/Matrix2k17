@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,12 +34,14 @@ public class MyRegistrations extends AppCompatActivity {
     private ValueEventListener mValueEventListener;
     //Comment
     private ArrayList<Registration> mRegistration;
+    private ProgressBar pg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_registrations);
 
+        pg = (ProgressBar) findViewById(R.id.myRegPg);
         mRecyclerView = (RecyclerView) findViewById(R.id.regRecycler);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this,1));
@@ -72,10 +76,10 @@ public class MyRegistrations extends AppCompatActivity {
                         if(namex == null) {
                         break;
                         }
-                        String email = (String) snapshot.child("email").getValue();
+                        String email = (String) snapshot.child("phone").getValue();
                         String name = (String) snapshot.child("name").getValue();
                         String from = (String) snapshot.child("from").getValue();
-                        mRegistration.add(new Registration(name,from,email));
+                        mRegistration.add(new Registration(name,email,from));
 
                     }
                     updateUI();
@@ -96,5 +100,6 @@ public class MyRegistrations extends AppCompatActivity {
         mRegAdapter = new RegistrationAdapter(mRegistration,MyRegistrations.this);
         mRecyclerView.setAdapter(mRegAdapter);
         mRecyclerView.scrollToPosition(0);
+        pg.setVisibility(View.GONE);
     }
 }

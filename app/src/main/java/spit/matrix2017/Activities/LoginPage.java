@@ -74,12 +74,18 @@ public class LoginPage extends AppCompatActivity {
         admin.add("sushmenkc179@gmail.com");
         admin.add("riya.bakhtiani@gmail.com");
         admin.add("ashnehete@gmail.com");
+        admin.add("aditya.bhave41@gmail.com");
+        admin.add("jainamsoni33@gmail.com");
+        admin.add("pardeshi.vishwa25@gmail.com");
+        admin.add("hussain1605@gmail.com");
+        admin.add("himanshu2205@gmail.com");
+
         // and so on
 
 
 
         eventOrg = new ArrayList();
-        eventOrg.add("aditya.bhave41@gmail.com");
+        //eventOrg.add("aditya.bhave41@gmail.com");
         eventOrg.add("techrace2k17@gmail.com");
         eventOrg.add("virtualplacementm17@gmail.com");
         eventOrg.add("zorbing.matrix@gmail.com");
@@ -222,6 +228,12 @@ public class LoginPage extends AppCompatActivity {
 
     public void regUser(View v){
         // Get the class + branch here!!
+
+        if(uclass.getText().toString().equals(null) || ucontact.getText().toString().equals(null)){
+            Toast.makeText(LoginPage.this,"Dont leave any field blank :)",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         phoneNo = ucontact.getText().toString();
         z = uclass.getText().toString();
         fixedFrom = z + " " + x;
@@ -230,6 +242,7 @@ public class LoginPage extends AppCompatActivity {
         spa.putBoolean("firstSignIn",false);
         spa.commit();
         sp.putString("from", fixedFrom);
+        sp.putString("phone",phoneNo);
         sp.commit();
         finish();
     }

@@ -108,7 +108,7 @@ public class MyEventsFragment extends Fragment {
                     public void onItemClick(View view, int position) {
                         // do whatever
                         String x = userInfo.getString("type","Guest");
-                        if(x.equals("Event Orgniser") || x.equals("Supervisor") ) {
+                        if(x.equals("Event Organiser") || x.equals("Supervisor") ) {
                             Event event = mEvents.get(position);
                             Intent i = new Intent(getContext(), MyRegistrations.class);
 
@@ -144,9 +144,9 @@ public class MyEventsFragment extends Fragment {
 
                     @Override public void onLongItemClick(View view, int position) {
                         // do whatever
-                        if(userInfo.getString("type","Guest").equals("Event Orgniser")){
+                        if(userInfo.getString("type","Guest").equals("Event Organiser")){
                             Intent i = new Intent(getContext(), EditEvent.class);
-                            i.putExtra("key",key);
+                            i.putExtra("name",mEvents.get(position).getName());
                             startActivity(i);
                         }
                         else {

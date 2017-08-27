@@ -86,7 +86,7 @@ public class RegConfirm extends AppCompatActivity {
             public void onClick(View v) {
                 String name,email,from;
                 name = sp.getString("name",null);
-                email = sp.getString("email",null);
+                email = sp.getString("phone",null);
                 from = sp.getString("from",null);
 
                 mPushDatabaseReference.push().setValue(new Registration(name,email,from));

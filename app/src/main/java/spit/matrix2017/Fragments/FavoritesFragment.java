@@ -36,6 +36,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,7 @@ public class FavoritesFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     private RegistrationAdapter mRegAdapter;
+    ProgressBar pg;
 
     Set<String> name;
 
@@ -87,6 +89,7 @@ public class FavoritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recyclerview_layout,container,false);
 
+        pg = (ProgressBar) view.findViewById(R.id.mypg);
         myReg = getContext().getSharedPreferences("myReg", Context.MODE_PRIVATE);
         name = new HashSet<String>();
         name.addAll(myReg.getStringSet("myReg",name));
@@ -120,6 +123,7 @@ public class FavoritesFragment extends Fragment {
         mRegAdapter = new RegistrationAdapter(mRegistration,getContext());
         mRecyclerView.setAdapter(mRegAdapter);
         mRecyclerView.scrollToPosition(0);
+        pg.setVisibility(View.GONE);
     }
 
 
