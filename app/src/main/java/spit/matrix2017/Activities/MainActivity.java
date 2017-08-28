@@ -409,6 +409,20 @@ public class MainActivity extends AppCompatActivity {
                                     }, DRAWER_DELAY);
                                     break;
                                 case R.id.sign_out:
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                        boolean isFragmentInStack = fm.popBackStackImmediate(backStageName, 0);
+                                        if (!isFragmentInStack) {
+                                            MainFragment fragment = MainFragment.newInstance();
+                                            fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                            backStageName = fragment.getClass().getName();
+                                            fragmentTransaction.addToBackStack(backStageName).commit();
+                                        }
+                                        appBarLayout.setExpanded(true, true);
+                                        collapsingToolbarLayout.setTitle("Matrix 17");
+                                        }
+                                    }, DRAWER_DELAY);
                                     AuthUI.getInstance()
                                             .signOut(MainActivity.this)
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {

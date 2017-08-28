@@ -90,10 +90,10 @@ public class LoginPage extends AppCompatActivity {
         eventOrg.add("virtualplacementm17@gmail.com");
         eventOrg.add("zorbing.matrix@gmail.com");
         eventOrg.add("lineseguidor@gmail.com");
-        eventOrg.add("spitlanmafia@gmail.com");
+        eventOrg.add("spitlanmafia.2017@gmail.com");
         eventOrg.add("matrixvsm17@gmail.com");
         eventOrg.add("iplauction2k17@gmail.com");
-        eventOrg.add("paperpresentation.matrix@gmail.com");
+        eventOrg.add("paperpresentation.matrix17@gmail.com");
         eventOrg.add("chaotichouse2k17@gmail.com");
         eventOrg.add("lasertag1718@gmail.com");
         eventOrg.add("spitmatrixlangaming@gmail.com");
@@ -101,7 +101,14 @@ public class LoginPage extends AppCompatActivity {
         eventOrg.add("mindthatword@gmail.com");
         eventOrg.add("Matrix2k17.zk@gmail.com");
         eventOrg.add("humanfoosball2017@gmail.com");
-        eventOrg.add("robowars.matrix@gmail.com");// and so on
+        eventOrg.add("robowars.matrix@gmail.com");
+        eventOrg.add("robosoccermatrix2k17@gmail.com");
+        eventOrg.add("Spit.iete@gmail.com");
+        eventOrg.add("zorbing.matrix17@gmail.com");
+        eventOrg.add("spit.csi@gmail.com");
+        eventOrg.add("projectexhibition.matrix2k17@gmail.com");
+        // and so on
+        //prjct exhibition, tech quz
 
         userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
         sp = userInfo.edit();
@@ -218,18 +225,13 @@ public class LoginPage extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            this.finish();
-        }
+        Toast.makeText(LoginPage.this,"Please Register Yourself",Toast.LENGTH_SHORT).show();
     }
 
     public void regUser(View v){
         // Get the class + branch here!!
 
-        if(uclass.getText().toString().equals(null) || ucontact.getText().toString().equals(null)){
+        if(uclass.getText().toString().equals("") || ucontact.getText().toString().equals("")){
             Toast.makeText(LoginPage.this,"Dont leave any field blank :)",Toast.LENGTH_SHORT).show();
             return;
         }
@@ -248,4 +250,6 @@ public class LoginPage extends AppCompatActivity {
     }
 
 
+
 }
+

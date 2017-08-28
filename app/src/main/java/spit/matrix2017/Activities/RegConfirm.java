@@ -53,7 +53,8 @@ public class RegConfirm extends AppCompatActivity {
         eventname.setText(getIntent().getStringExtra("name"));
         mButton.setClickable(false);
 
-        sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        sp = getSharedPreferences("userInfo", Context.MODE_APPEND);
+
         myReg = getSharedPreferences("myReg",Context.MODE_APPEND);
         spa = myReg.edit();
 
@@ -61,13 +62,13 @@ public class RegConfirm extends AppCompatActivity {
         mDatabaseReference = mFirebaseDatabase.getReference().child("Registrations").child(getIntent().getStringExtra("name"));
         mPushDatabaseReference = mFirebaseDatabase.getReference().child("Registrations").child(getIntent().getStringExtra("name"));
 
-        email = sp.getString("email",null);
+        email = sp.getString("name",null);
 
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String x = (String) snapshot.child("email").getValue();
+                    String x = (String) snapshot.child("name").getValue();
                     if(email.equals(x)){
                         Toast.makeText(RegConfirm.this,"Already!!",Toast.LENGTH_SHORT).show();
                         finish();
@@ -86,7 +87,7 @@ public class RegConfirm extends AppCompatActivity {
             public void onClick(View v) {
                 String name,email,from;
                 name = sp.getString("name",null);
-                email = sp.getString("phone",null);
+                email = sp.getString("phone","123456");
                 from = sp.getString("from",null);
 
                 mPushDatabaseReference.push().setValue(new Registration(name,email,from));

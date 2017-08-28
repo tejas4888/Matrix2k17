@@ -153,7 +153,7 @@ public class FavoritesFragment extends Fragment {
                                 String time = (String) snapshot.child("time").getValue();
                                 String venue = (String) snapshot.child("venue").getValue();
 
-                                mRegistration.add(new Registration(dname,dates,time+venue));
+                                mRegistration.add(new Registration(dname,dates,time + "," + venue));
                             }
                         }
                     }
@@ -186,7 +186,7 @@ public class FavoritesFragment extends Fragment {
                                 String time = (String) snapshot.child("time").getValue();
                                 String venue = (String) snapshot.child("venue").getValue();
 
-                                mRegistration.add(new Registration(dname,dates,time+venue));
+                                mRegistration.add(new Registration(dname,dates,time+","+venue));
                             }
                         }
                     }
@@ -217,7 +217,7 @@ public class FavoritesFragment extends Fragment {
                                 String time = (String) snapshot.child("time").getValue();
                                 String venue = (String) snapshot.child("venue").getValue();
 
-                                mRegistration.add(new Registration(dname,dates,time+" "+venue));
+                                mRegistration.add(new Registration(dname,dates,time+","+venue));
                             }
                     }
 

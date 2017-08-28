@@ -44,18 +44,6 @@
                 android:hint="Venue" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                android:id="@+id/addevent2_organizeremail_TextInputLayout" >
-            <EditText
-                android:id="@+id/event2_mail"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:hint="Email" />
-            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
@@ -80,7 +68,8 @@
                 android:layout_width="220dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:hint="Organizer1 Contact" />
+                android:hint="Organizer1 Contact"
+                android:inputType="number"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -106,7 +95,8 @@
                 android:layout_width="220dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:hint="Organizer2 Contact" />
+                android:hint="Organizer2 Contact"
+                android:inputType="number"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -119,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:hint="Prizes" />
+                android:hint="PrizeSchemes" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -132,7 +122,7 @@
                 android:layout_width="220dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:hint="Registration fee" />
+                android:hint="RegistrationSchemes" />
             </android.support.design.widget.TextInputLayout>
 
             <Button

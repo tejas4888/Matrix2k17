@@ -1,6 +1,9 @@
 package spit.matrix2017.Activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,7 +11,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +24,7 @@ import java.util.ArrayList;
 
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.Feedback;
+import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.HelperClasses.Registration;
 import spit.matrix2017.HelperClasses.RegistrationAdapter;
 import spit.matrix2017.HelperClasses.ReviewAdapter;
@@ -35,6 +41,7 @@ public class MyRegistrations extends AppCompatActivity {
     //Comment
     private ArrayList<Registration> mRegistration;
     private ProgressBar pg;
+    private String toDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,35 @@ public class MyRegistrations extends AppCompatActivity {
         mItemDatabaseReference = mFirebaseDatabase.getReference().child("Registrations").child(getIntent().getStringExtra("name"));
         mRegistration = new ArrayList<Registration>();
 
+
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(MyRegistrations.this, mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        //Nothing to do
+                    }
+
+                    @Override public void onLongItemClick(View view, final int position) {
+                            // do whatever
+                            new AlertDialog.Builder(MyRegistrations.this)
+                                    .setPositiveButton("Delete",new DialogInterface.OnClickListener(){
+                                        public void onClick(DialogInterface dialog,int which){
+                                            toDelete = mRegistration.get(position).getName();
+                                            MyRegistrations.DeleteReg frl = new MyRegistrations.DeleteReg();
+                                            frl.execute();
+
+
+                                        }
+                                    })
+                                    .setNeutralButton("Cancel", new DialogInterface.OnClickListener(){
+                                        public void onClick(DialogInterface dialog,int which){
+                                        }
+                                    })
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+                    }
+                })
+        );
 
         MyRegistrations.FetchRegList frl = new MyRegistrations.FetchRegList();
         frl.execute();
@@ -76,13 +112,47 @@ public class MyRegistrations extends AppCompatActivity {
                         if(namex == null) {
                         break;
                         }
-                        String email = (String) snapshot.child("phone").getValue();
+                        String email = (String) snapshot.child("email").getValue();
                         String name = (String) snapshot.child("name").getValue();
                         String from = (String) snapshot.child("from").getValue();
                         mRegistration.add(new Registration(name,email,from));
 
                     }
                     updateUI();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mItemDatabaseReference.addValueEventListener(mValueEventListener);
+            return null;
+        }
+    }
+
+
+    public class DeleteReg extends AsyncTask<Void,Void,ArrayList<Event>> {
+
+        @Override
+        protected void onPreExecute() {
+            //bar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected ArrayList<Event> doInBackground(Void... params) {
+
+            mValueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        String namex = (String) snapshot.child("name").getValue();
+                        if(toDelete.equals(namex)){
+                            snapshot.getRef().removeValue();
+                            break;
+                        }
+                    }
                 }
 
                 @Override

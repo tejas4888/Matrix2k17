@@ -408,31 +408,8 @@ public class EventDetails
                 final Calendar beginTime = Calendar.getInstance();
                 final Calendar endTime = Calendar.getInstance();
 
-                if(event_name != null && event_name.equals("VSM"))
-                {
-                    beginTime.set(2017, 1, 15, 13, 0);
-                    endTime.set(2017, 1, 15, 14, 0);
-                }
-                else if(event_name != null && event_name.equals("Daniel Fernandes"))
-                {
-                    beginTime.set(2017, 1, 15, 16, 0);
-                    endTime.set(2017, 1, 15, 17, 0);
-                }
-                else if(event_name != null && event_name.equals("Techshiksha"))
-                {
-                    beginTime.set(2017, 1, 15, 18, 0);
-                    endTime.set(2017, 1, 15, 19, 0);
-                }
-                else if(event_name != null && event_name.equals("Sky Observation"))
-                {
-                    beginTime.set(2017, 1, 16, 18, 0);
-                    endTime.set(2017, 1, 16, 21, 0);
-                }
-                else
-                {
-                    beginTime.set(2017, 1, 15, 9, 0);
-                    endTime.set(2017, 1, 15, 18, 0);
-                }
+                beginTime.set(2017, 8, 15, 9, 0);
+                endTime.set(2017, 8, 15, 18, 0);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Remind on?");
@@ -451,19 +428,8 @@ public class EventDetails
                         }
                         else
                         {
-                            if(event_name != null && event_name.equals("VSM"))
-                            {
-                                beginTime.set(2017, 1, 16, 13, 0);
-                                endTime.set(2017, 1, 16, 14, 0);
-                            }
-                            else if((event_name!=null) && (event_name.equals("Battle Frontier")||event_name.equals("TechXplosion")||event_name.equals("Techeshi's Castle"))){
-                                beginTime.set(2017, 1, 16, 9, 0);
-                                endTime.set(2017, 1, 16, 15, 0);
-                            }
-                            else{
-                                beginTime.set(2017, 1, 16, 9, 0);
-                                endTime.set(2017, 1, 16, 18, 0);
-                            }
+                            beginTime.set(2017, 8, 16, 9, 0);
+                            endTime.set(2017, 8, 16, 18, 0);
 
                             goToCalendar(beginTime, endTime);
                         }

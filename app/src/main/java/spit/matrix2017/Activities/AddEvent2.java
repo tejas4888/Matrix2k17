@@ -1,6 +1,8 @@
 package spit.matrix2017.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +24,8 @@ public class AddEvent2 extends AppCompatActivity {
     String name,url,desc,date,eventCategory;
     EditText etimings,evenue,email,ename1,enum1,ename2,enum2,eprize,efee;
     TextInputLayout timelayout,venuelayout,emaillayout,name1layout,contact1layout,name2layout,contact2layout,prizelayout,feelayout;
+    SharedPreferences userInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,7 @@ public class AddEvent2 extends AppCompatActivity {
 
         etimings=(EditText)findViewById(R.id.event2_timings);
         evenue=(EditText)findViewById(R.id.event2_venue);
-        email=(EditText)findViewById(R.id.event2_mail);
+        //email=(EditText)findViewById(R.id.event2_mail);
         ename1=(EditText)findViewById(R.id.event2_name1);
         enum1=(EditText)findViewById(R.id.event2_num1);
         ename2=(EditText)findViewById(R.id.event2_name2);
@@ -39,7 +43,7 @@ public class AddEvent2 extends AppCompatActivity {
 
         timelayout=(TextInputLayout)findViewById(R.id.addevent2_timing_TextInputLayout);
         venuelayout=(TextInputLayout)findViewById(R.id.addevent2_venue_TextInputLayout);
-        emaillayout=(TextInputLayout)findViewById(R.id.addevent2_organizeremail_TextInputLayout);
+        //emaillayout=(TextInputLayout)findViewById(R.id.addevent2_organizeremail_TextInputLayout);
         name1layout=(TextInputLayout)findViewById(R.id.addevent2_organizer1name_TextInputLayout);
         name2layout=(TextInputLayout)findViewById(R.id.addevent2_organizer2name_TextInputLayout);
         contact1layout=(TextInputLayout)findViewById(R.id.addevent2_organizer1contact_TextInputLayout);
@@ -53,13 +57,14 @@ public class AddEvent2 extends AppCompatActivity {
         /*  Get a caegory from user out of Mega, Major and Fun,
         accordingly branch the database reference one branch further and then push*/
 
+        userInfo = getSharedPreferences("userInfo", Context.MODE_APPEND);
     }
 
     public void addEvent2(View v)
     {
         timings=etimings.getText().toString();
         venue=evenue.getText().toString();
-        mail=email.getText().toString();
+        //mail=email.getText().toString();
         name1=ename1.getText().toString();
         num1=enum1.getText().toString();
         name2=ename2.getText().toString();
@@ -69,7 +74,7 @@ public class AddEvent2 extends AppCompatActivity {
 
         timelayout.setErrorEnabled(false);
         venuelayout.setErrorEnabled(false);
-        emaillayout.setErrorEnabled(false);
+        //emaillayout.setErrorEnabled(false);
         name1layout.setErrorEnabled(false);
         contact1layout.setErrorEnabled(false);
         name2layout.setErrorEnabled(false);
@@ -86,10 +91,12 @@ public class AddEvent2 extends AppCompatActivity {
         } else if(TextUtils.isEmpty(venue)){
             venuelayout.setError(getString(R.string.notemptyfield));
             return;
-        } else if (TextUtils.isEmpty(mail)){
-            emaillayout.setError(getString(R.string.notemptyfield));
-            return;
-        } else if (TextUtils.isEmpty(name1)){
+        }
+        //else if (TextUtils.isEmpty(mail)){
+            //emaillayout.setError(getString(R.string.notemptyfield));
+            //return;
+        //}
+        else if (TextUtils.isEmpty(name1)){
             name1layout.setError(getString(R.string.notemptyfield));
             return;
         } else if (TextUtils.isEmpty(num1)){
@@ -115,6 +122,7 @@ public class AddEvent2 extends AppCompatActivity {
         desc=intent.getStringExtra("desc");
         date=intent.getStringExtra("date");
         eventCategory=intent.getStringExtra("eventCategory");
+        mail = userInfo.getString("email","xyz@gmail.com");
 
         mDatabaseReference.child(eventCategory).push().setValue(new Event(name,desc,url,date,timings,venue,mail,name1,name2,num1,num2,prize,fee));
         finish();
