@@ -136,7 +136,7 @@ public class EventListFragment extends Fragment{
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        pg = (ProgressBar) view.findViewById(R.id.evlpg);
+        pg = (ProgressBar) view.findViewById(R.id.mypg);
 
 
 
