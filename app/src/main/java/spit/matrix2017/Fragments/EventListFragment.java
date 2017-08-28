@@ -94,25 +94,7 @@ public class EventListFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
 
-        ConnectivityManager conMan = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        //mobile
-        NetworkInfo.State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
-
-        //wifi
-        NetworkInfo.State wifi = conMan.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
-
-        if (mobile == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTED) {
-
-        } else  {
-           try {
-               Snackbar.make(getActivity().findViewById(R.id.navigation_view),"No Internet Connection",Snackbar.LENGTH_LONG).show();
-           }catch (Exception e)
-           {           }
-
-            Toast.makeText(getActivity(),"Unable to fetch latest data",Toast.LENGTH_SHORT).show();
-            pg.setVisibility(View.GONE);
-        }
 
         Bundle bundle = this.getArguments();
         if(bundle != null)
@@ -131,12 +113,35 @@ public class EventListFragment extends Fragment{
         //matrixContentProvider=new MatrixContentProvider();
         //dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
 
+        pg = (ProgressBar) view.findViewById(R.id.mypg);
+
+        ConnectivityManager conMan = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        //mobile
+        NetworkInfo.State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+
+        //wifi
+        NetworkInfo.State wifi = conMan.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+
+        if (mobile == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTED) {
+
+        } else  {
+            try {
+                Snackbar.make(getActivity().findViewById(R.id.navigation_view),"No Internet Connection",Snackbar.LENGTH_LONG).show();
+            }catch (Exception e)
+            {           }
+
+            Toast.makeText(getActivity(),"Unable to fetch latest data",Toast.LENGTH_SHORT).show();
+            pg.setVisibility(View.GONE);
+        }
+
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        pg = (ProgressBar) view.findViewById(R.id.mypg);
+
 
 
 

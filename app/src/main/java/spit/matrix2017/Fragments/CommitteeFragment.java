@@ -36,7 +36,7 @@ public class CommitteeFragment
         extends Fragment{
 
 
-    ImageView cp,vcp1,vcp2,vcp3,tech1,tech2,hoes1,hoes2,hoes3,hoes4,creative,admin1,admin2,sec1,sec2,hop1,hop2,hop3;
+    ImageView cp,vcp,tech,hoes,creative,admin,sec,hop;
 
     public CommitteeFragment(){}
 
@@ -49,45 +49,28 @@ public class CommitteeFragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_committee,container,false);
+        View view = inflater.inflate(R.layout.fragment_committee2,container,false);
 
-        cp = (ImageView)view.findViewById(R.id.cp);
-        vcp1 = (ImageView)view.findViewById(R.id.vcp1);
-        vcp2 = (ImageView)view.findViewById(R.id.vcp2);
-        vcp3 = (ImageView)view.findViewById(R.id.vcp3);
-        tech1 = (ImageView)view.findViewById(R.id.tech1);
-        tech2 = (ImageView)view.findViewById(R.id.tech2);
-        hoes1 = (ImageView)view.findViewById(R.id.hoes1);
-        hoes2 = (ImageView)view.findViewById(R.id.hoes2);
-        hoes3 = (ImageView)view.findViewById(R.id.hoes3);
-        hoes4 = (ImageView)view.findViewById(R.id.hoes4);
-        creative = (ImageView)view.findViewById(R.id.creative);
-        admin1 = (ImageView)view.findViewById(R.id.admin1);
-        admin2 = (ImageView)view.findViewById(R.id.admin2);
-        sec1= (ImageView)view.findViewById(R.id.security1);
-        sec2 = (ImageView)view.findViewById(R.id.security2);
-        hop1 = (ImageView)view.findViewById(R.id.hop1);
-        hop2 = (ImageView)view.findViewById(R.id.hop2);
-        hop3 = (ImageView)view.findViewById(R.id.hop3);
+        cp = (ImageView)view.findViewById(R.id.mcp);
+        vcp = (ImageView)view.findViewById(R.id.mvcp);
+        tech = (ImageView)view.findViewById(R.id.mtech);
+        hoes = (ImageView)view.findViewById(R.id.mhoes);
+        creative = (ImageView)view.findViewById(R.id.mcreative);
+        admin = (ImageView)view.findViewById(R.id.madmin);
+        sec = (ImageView)view.findViewById(R.id.msecurity);
+        hop = (ImageView)view.findViewById(R.id.mhop);
 
-        Picasso.with(getActivity()).load(R.drawable.cp).into(cp);
-        Picasso.with(getActivity()).load(R.drawable.vcp_kamya).into(vcp1);
-        Picasso.with(getActivity()).load(R.drawable.vcp_ashish).into(vcp2);
-        Picasso.with(getActivity()).load(R.drawable.vcp_sushmen).into(vcp3);
-        Picasso.with(getActivity()).load(R.drawable.tech_aditya).into(tech1);
-        Picasso.with(getActivity()).load(R.drawable.tech_aashish).into(tech2);
-        Picasso.with(getActivity()).load(R.drawable.hoes_jainam).into(hoes1);
-        Picasso.with(getActivity()).load(R.drawable.hoes_vishwa).into(hoes2);
-        Picasso.with(getActivity()).load(R.drawable.hoes_saral).into(hoes3);
-        Picasso.with(getActivity()).load(R.drawable.hoes_shreya).into(hoes4);
-        Picasso.with(getActivity()).load(R.drawable.creative).into(creative);
-        Picasso.with(getActivity()).load(R.drawable.image1).into(admin1);
-        Picasso.with(getActivity()).load(R.drawable.admin_gagan).into(admin2);
-        Picasso.with(getActivity()).load(R.drawable.security_deepam).into(sec1);
-        Picasso.with(getActivity()).load(R.drawable.security_ninad).into(sec2);
-        Picasso.with(getActivity()).load(R.drawable.hop_ankur).into(hop1);
-        Picasso.with(getActivity()).load(R.drawable.hop_astha).into(hop2);
-        Picasso.with(getActivity()).load(R.drawable.hop3).into(hop3);
+        Picasso.with(getContext()).load(R.drawable.mcp).into(cp);
+        Picasso.with(getContext()).load(R.drawable.mcp).into(vcp);
+        Picasso.with(getContext()).load(R.drawable.mtech).into(tech);
+        Picasso.with(getContext()).load(R.drawable.mhoes).into(hoes);
+        Picasso.with(getContext()).load(R.drawable.mcreative).into(creative);
+        Picasso.with(getContext()).load(R.drawable.madmin).into(admin);
+        Picasso.with(getContext()).load(R.drawable.msecurity).into(sec);
+        Picasso.with(getContext()).load(R.drawable.mhospitality).into(hop);
+
+
+
 
         return view;
     }
