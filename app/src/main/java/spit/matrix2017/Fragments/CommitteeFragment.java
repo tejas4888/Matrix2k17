@@ -61,7 +61,7 @@ public class CommitteeFragment
         hop = (ImageView)view.findViewById(R.id.mhop);
 
         Picasso.with(getContext()).load(R.drawable.mcp).into(cp);
-        Picasso.with(getContext()).load(R.drawable.mcp).into(vcp);
+        Picasso.with(getContext()).load(R.drawable.matrixvcps).into(vcp);
         Picasso.with(getContext()).load(R.drawable.mtech).into(tech);
         Picasso.with(getContext()).load(R.drawable.mhoes).into(hoes);
         Picasso.with(getContext()).load(R.drawable.mcreative).into(creative);
