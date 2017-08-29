@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mPushDatabaseReference;
 
     TextView navDrawerUsername,navDrawerUseremailid;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,13 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main_v21);
         else
             setContentView(R.layout.activity_main);
+
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+            }
+        }
 
         admin = new ArrayList();
         admin.add("asdfas");// and so on
@@ -207,10 +215,10 @@ public class MainActivity extends AppCompatActivity {
         final Runnable r = new Runnable() {
             public void run() {
                 mViewPager.setCurrentItem((mViewPager.getCurrentItem()+1)%NUM_PAGES, true);
-                h.postDelayed(this, 5000);
+                h.postDelayed(this, 3000);
             }
         };
-        h.postDelayed(r, 5000);
+        h.postDelayed(r, 3000);
 
 
         //instantiation
