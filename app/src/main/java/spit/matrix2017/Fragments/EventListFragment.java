@@ -166,6 +166,7 @@ public class EventListFragment extends Fragment{
                         i.putExtra("contact1no", event.getPocNumber1());
                         i.putExtra("contact2name", event.getPocName2());
                         i.putExtra("contact2no", event.getPocNumber2());
+                        i.putExtra("dates",event.getDates());
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                             ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
                             poster.setTransitionName("poster");

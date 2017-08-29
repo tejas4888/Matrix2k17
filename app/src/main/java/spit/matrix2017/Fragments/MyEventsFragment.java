@@ -111,7 +111,6 @@ public class MyEventsFragment extends Fragment {
                         if(x.equals("Event Organiser") || x.equals("Supervisor") ) {
                             Event event = mEvents.get(position);
                             Intent i = new Intent(getContext(), MyRegistrations.class);
-
                             i.putExtra("name", event.getName());
                         /*i.putExtra("image",event.getPosterUrl());
                         i.putExtra("description", event.getDescription());
@@ -145,8 +144,15 @@ public class MyEventsFragment extends Fragment {
                     @Override public void onLongItemClick(View view, int position) {
                         // do whatever
                         if(userInfo.getString("type","Guest").equals("Event Organiser")){
+
+                            Event event = mEvents.get(position);
+
                             Intent i = new Intent(getContext(), EditEvent.class);
-                            i.putExtra("name",mEvents.get(position).getName());
+                            i.putExtra("name",event.getName());
+                            i.putExtra("venue", event.getVenue());
+                            i.putExtra("time", event.getTime());
+                            i.putExtra("registration", event.getFeeScheme());
+                            i.putExtra("prizes", event.getPrizeScheme());
                             startActivity(i);
                         }
                         else {

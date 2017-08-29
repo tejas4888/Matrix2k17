@@ -39,6 +39,11 @@ public class EditEvent extends AppCompatActivity {
         e3 = (EditText) findViewById(R.id.editFee);
         e4 = (EditText) findViewById(R.id.editPrize);
 
+        e1.setText(getIntent().getStringExtra("time"));
+        e2.setText(getIntent().getStringExtra("venue"));
+        e3.setText(getIntent().getStringExtra("registrations"));
+        e4.setText(getIntent().getStringExtra("prices"));
+
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

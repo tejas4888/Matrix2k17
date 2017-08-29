@@ -77,8 +77,6 @@ public class LoginPage extends AppCompatActivity {
         admin.add("aditya.bhave41@gmail.com");
         admin.add("jainamsoni33@gmail.com");
         admin.add("pardeshi.vishwa25@gmail.com");
-        admin.add("hussain1605@gmail.com");
-        admin.add("himanshu2205@gmail.com");
 
         // and so on
 
@@ -99,7 +97,7 @@ public class LoginPage extends AppCompatActivity {
         eventOrg.add("spitmatrixlangaming@gmail.com");
         eventOrg.add("codatron.matrix17@gmail.com");
         eventOrg.add("mindthatword@gmail.com");
-        eventOrg.add("Matrix2k17.zk@gmail.com");
+        eventOrg.add("matrix2k17.zk@gmail.com");
         eventOrg.add("humanfoosball2017@gmail.com");
         eventOrg.add("robowars.matrix@gmail.com");
         eventOrg.add("robosoccermatrix2k17@gmail.com");

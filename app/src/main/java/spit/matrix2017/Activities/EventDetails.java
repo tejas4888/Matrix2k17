@@ -147,9 +147,7 @@ public class EventDetails
         else
             this.setTitle("Some event");
 
-        if(Objects.equals(event_name, "Daniel Fernandes")||Objects.equals(event_name, "Techshiksha")||Objects.equals(event_name, "Sky Observation")||Objects.equals(event_name, "Hackathon")||Objects.equals(event_name, "Ethical Hacking")){
-            hardcodedDate.setVisibility(View.GONE);
-        }
+        hardcodedDate.setText(getIntent().getStringExtra("dates"));
 
         setDescription(getIntent().getStringExtra("description"));
         setVenueAndTime(getIntent().getStringExtra("venue"), getIntent().getStringExtra("time"));

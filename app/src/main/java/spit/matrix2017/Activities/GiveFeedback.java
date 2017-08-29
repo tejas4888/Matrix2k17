@@ -114,7 +114,10 @@ public class GiveFeedback extends AppCompatActivity {
                 //rating = mRating.getText().toString();
                 rating=String.valueOf(smilebarrating);
                 feedback = mFeedback.getText().toString();
-
+                if(mFeedback.getText().toString().equals("")){
+                    Toast.makeText(GiveFeedback.this,"Say something, don't hesitate :)",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 mPushDatabaseReference.push().setValue(new Feedback(feedback,rating,email));
                 Toast.makeText(GiveFeedback.this,"Thank you for your thoughts :)",Toast.LENGTH_SHORT).show();
                 finish();

@@ -2,6 +2,7 @@ package spit.matrix2017.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -75,6 +76,11 @@ public class MyRegistrations extends AppCompatActivity {
                                             MyRegistrations.DeleteReg frl = new MyRegistrations.DeleteReg();
                                             frl.execute();
 
+
+                                            Uri sms_uri = Uri.parse("smsto:" + mRegistration.get(position).getEmail());
+                                            Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
+                                            sms_intent.putExtra("sms_body","Dear " + toDelete + ",\n\tWe are forced to cancel your registration due to unforeseeable issues. Please contact the respected people for the event for further information.\n\n Regards\nTeam " + getIntent().getStringExtra("name") );
+                                            startActivity(sms_intent);
 
                                         }
                                     })
