@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
                                     .setProviders(AuthUI.GOOGLE_PROVIDER)
-                                    .setTheme(R.style.LoginTheme)
+                                    .setTheme(R.style.LoginTheme).setLogo(R.mipmap.ic_launcher)
                                     .build(),
                             RC_SIGN_IN);
                 }
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
                                     }, DRAWER_DELAY);
                                     break;
 
-                                /*case R.id.sponsors_menuItem:
+                                case R.id.sponsors_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
@@ -343,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                */
+
 
                                 case R.id.commitee_menuItem:
                                     new Handler().postDelayed(new Runnable() {

@@ -181,7 +181,7 @@ public class MyEventsFragment extends Fragment {
 
 
     public void updateUI(){
-        final EventListAdapter evl = new EventListAdapter(getContext(),mEvents);
+        final MyEventAdapter evl = new MyEventAdapter(mEvents,getContext());
         //final MyEventAdapter evl=new MyEventAdapter(mEvents,getContext());
         recyclerView.setAdapter(evl);
         Log.v("Recycler","Hello");

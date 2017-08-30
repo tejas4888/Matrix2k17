@@ -1,7 +1,6 @@
 package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,31 +16,31 @@ import java.util.ArrayList;
 import spit.matrix2017.R;
 
 /**
- * Created by Tejas on 16-08-2017.
+ * Created by USER on 30-08-2017.
  */
 
-public class MyEventAdapter extends RecyclerView.Adapter<MyEventAdapter.CustomViewHolder>{
+public class SponsorAdapter extends RecyclerView.Adapter<SponsorAdapter.CustomViewHolder> {
 
-    ArrayList<Event> eventdetailslist=new ArrayList<Event>();
+    ArrayList<Sponsor> eventdetailslist=new ArrayList<Sponsor>();
     Context context;
 
-    public MyEventAdapter(ArrayList<Event> eventdetailslist,Context context)
+    public SponsorAdapter(ArrayList<Sponsor> eventdetailslist,Context context)
     {
         this.eventdetailslist=eventdetailslist;
         this.context=context;
     }
 
     @Override
-    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SponsorAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.event_thumbnail, parent, false);
-        return new MyEventAdapter.CustomViewHolder(view);
+        return new SponsorAdapter.CustomViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(SponsorAdapter.CustomViewHolder holder, int position) {
 
-        holder.eventtitle.setText(eventdetailslist.get(position).getName());
-        Glide.with(context).load(eventdetailslist.get(position).getPosterUrl()).placeholder(R.drawable.download).into(holder.poster);
+        holder.eventtitle.setVisibility(View.GONE);
+        Glide.with(context).load(eventdetailslist.get(position).getPicUrl()).placeholder(R.drawable.download).into(holder.poster);
     }
 
     @Override
@@ -62,5 +61,4 @@ public class MyEventAdapter extends RecyclerView.Adapter<MyEventAdapter.CustomVi
             poster=(ImageView)itemView.findViewById(R.id.thumbnail);
         }
     }
-
 }

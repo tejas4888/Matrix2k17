@@ -34,9 +34,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -48,6 +53,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
     private Context mContext;
     private List<Event> eventNames;
     private Event event;
+    private ProgressBar progressBar;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView eventTitle;
@@ -61,6 +67,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             background = view.findViewById(R.id.textView_background);
             cardView = (CardView) view.findViewById(R.id.myaccount_cardview);
+            progressBar  = (ProgressBar) view.findViewById(R.id.progressBar);
         }
 
         @Override
@@ -129,22 +136,28 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         holder.thumbnail.setImageResource(R.mipmap.ic_launcher);
         if(eventName.getPosterUrl()!= "") {
-            Picasso.with(mContext).load(eventName.getPosterUrl()).resize(400, 400).centerCrop().into(holder.thumbnail);
+            //Picasso.with(mContext).load(eventName.getPosterUrl()).placeholder(R.drawable.about_firebase).resize(400,400).centerCrop().into(holder.thumbnail);
+
+            Glide.with(mContext).load(eventName.getPosterUrl())
+            /*placeholder(android.R.drawable.progress_horizontal)*/
+            .listener(new RequestListener<String, GlideDrawable>() {
+                @Override
+                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    progressBar.setVisibility(View.GONE);
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    progressBar.setVisibility(View.GONE);
+                    return false;
+                }
+            }).override(400,400).crossFade().centerCrop().into(holder.thumbnail);
         }
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
-        //int color = Color.parseColor(eventName.getColor());
-        //holder.background.setBackgroundColor(color);
-        //if ((Color.red(color) + Color.green(color) + Color.blue(color)) < 420) {
-          //  holder.eventTitle.setTextColor(Color.WHITE);
-        //}
 
-       // if(position > lastPosition){
-         //   Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
-           // holder.itemView.startAnimation(animation);
-            //lastPosition= position;
-        //}
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
