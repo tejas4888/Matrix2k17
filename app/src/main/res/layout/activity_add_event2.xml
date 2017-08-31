@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spit.matrix2017.Activities.AddEvent2"
+    tools:context="spit.matrix17.Activities.AddEvent2"
     android:orientation="vertical">
 
     <ScrollView

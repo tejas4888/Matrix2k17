@@ -40,7 +40,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <spit.matrix2017.HelperClasses.CustomViewPager
+                    <spit.matrix17.HelperClasses.CustomViewPager
                         android:id="@+id/viewpager_main"
                         android:layout_height="@dimen/activity_main_viewpager"
                         android:layout_width="match_parent"

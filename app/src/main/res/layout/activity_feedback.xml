@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spit.matrix2017.Activities.GiveFeedback"
+    tools:context="spit.matrix17.Activities.GiveFeedback"
     android:orientation="vertical">
 
     <TextView

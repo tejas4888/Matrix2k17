@@ -18,3 +18,8 @@
 -dontwarn com.squareup.picasso.**
 -keepattributes Signature
 -keepattributes *Annotation*
+-ignorewarnings
+
+-keep class * {
+    public private *;
+}

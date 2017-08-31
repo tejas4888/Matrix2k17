@@ -112,6 +112,19 @@
             android:layout_gravity="center"/>
     </android.support.v7.widget.CardView>
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:id="@+id/council"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.CardView>
+
 
 
 </LinearLayout>
