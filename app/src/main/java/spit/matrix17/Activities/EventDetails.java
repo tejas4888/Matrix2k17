@@ -478,20 +478,13 @@ public class EventDetails
         {
             if (getLastEventId(getContentResolver()) == mEventID)
             {
-                ContentResolver contentResolver = getContentResolver();
-                Uri uri = Uri.parse("content://spit.matrix2017.provider");
-                String selection = "name = ?";
-                String[] selectionArgs = {getIntent().getStringExtra("name")+", S.P.I.T."};
-                ContentValues cv = new ContentValues();
-                cv.put("reminder", 1);
-                contentResolver.update(uri, cv, selection, selectionArgs);
-
                 isReminderSet = true;
                 mi_reminder.setIcon(R.drawable.svg_alarm_on_white_48px);
                 Toast.makeText(EventDetails.this, "Successfully added reminder", Toast.LENGTH_SHORT).show();
             }
-            else
-                Toast.makeText(EventDetails.this, "Reminder not added", Toast.LENGTH_SHORT).show();
+            else {
+                //Toast.makeText(EventDetails.this, "Reminder not added", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

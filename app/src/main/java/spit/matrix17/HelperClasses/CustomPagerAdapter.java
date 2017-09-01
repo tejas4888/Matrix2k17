@@ -24,6 +24,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
+
 import spit.matrix17.R;
 
 public class CustomPagerAdapter extends PagerAdapter {
@@ -56,8 +58,7 @@ public class CustomPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.viewpager_image);
-        //Picasso.with(mContext).load(mResources[position]).into(imageView);
-        imageView.setImageResource(mResources[position]);
+        Glide.with(mContext).load(mResources[position]).fitCenter().into(imageView);
         container.addView(itemView);
 
         return itemView;

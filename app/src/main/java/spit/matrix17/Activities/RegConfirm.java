@@ -70,7 +70,7 @@ public class RegConfirm extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     String x = (String) snapshot.child("name").getValue();
                     if(email.equals(x)){
-                        Toast.makeText(RegConfirm.this,"Already!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegConfirm.this,"Already registered!",Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }

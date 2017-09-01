@@ -111,6 +111,8 @@ public class FavoritesFragment extends Fragment {
         mRegAdapter = new RegistrationAdapter(mRegistration,getContext());
         mRecyclerView.setAdapter(mRegAdapter);
         mRecyclerView.scrollToPosition(0);
+        if (mRegAdapter.getItemCount() == 0) getActivity().findViewById(R.id.no_regs_view).setVisibility(View.VISIBLE);
+        else getActivity().findViewById(R.id.no_regs_view).setVisibility(View.GONE);
         pg.setVisibility(View.GONE);
     }
 

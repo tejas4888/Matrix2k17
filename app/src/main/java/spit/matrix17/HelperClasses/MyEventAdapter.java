@@ -40,7 +40,7 @@ public class MyEventAdapter extends RecyclerView.Adapter<MyEventAdapter.CustomVi
     public void onBindViewHolder(CustomViewHolder holder, int position) {
 
         holder.eventtitle.setText(eventdetailslist.get(position).getName());
-        Glide.with(context).load(eventdetailslist.get(position).getPosterUrl()).placeholder(R.drawable.download).into(holder.poster);
+        Glide.with(context).load(eventdetailslist.get(position).getPosterUrl()).placeholder(R.drawable.download).override(400,400).into(holder.poster);
     }
 
     @Override

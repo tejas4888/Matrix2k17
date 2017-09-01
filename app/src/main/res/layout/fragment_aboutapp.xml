@@ -30,19 +30,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="26sp"
-                        android:layout_marginLeft="16dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/app_name"
                         android:textColor="@color/dark_gray"
-                        android:text="@string/app_name" />
+                        android:textSize="26sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -50,56 +52,62 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/svg_app_description_24px"/>
+                        android:src="@drawable/svg_app_description_24px" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:textSize="14sp"
-                        android:text="@string/app_description"  />
+                        android:text="@string/app_description"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/svg_app_license_24px" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:textSize="14sp"
-                        android:text="@string/app_licence" />
+                        android:text="@string/app_licence"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/svg_app_copyright_24px" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:textSize="14sp"
-                        android:text="@string/app_copyright"/>
+                        android:text="@string/app_copyright"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -107,15 +115,17 @@
                     android:id="@+id/fork_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:background="?attr/selectableItemBackground">
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/svg_logo_github" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -140,6 +150,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -150,7 +161,7 @@
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center_vertical"
+                        android:layout_gravity="center"
                         android:src="@drawable/about_firebase"
                         android:layout_marginTop="5dp"/>
                     <TextView
@@ -165,7 +176,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="External Libaries Used"
                     android:textSize="18sp"/>
 
@@ -185,7 +197,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
                         android:textSize="14sp"
-                        android:text="Picasso , Circular ImageView, Circle Indicator, Glide, Google Support Libraries"  />
+                        android:text="Circular ImageView, Circle Indicator, Glide, Android Support Libraries"  />
                 </LinearLayout>
 
 

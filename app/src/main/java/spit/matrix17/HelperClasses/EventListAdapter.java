@@ -58,7 +58,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             background = view.findViewById(R.id.textView_background);
             cardView = (CardView) view.findViewById(R.id.myaccount_cardview);
-            progressBar  = (ProgressBar) view.findViewById(R.id.progressBar);
+            //progressBar  = (ProgressBar) view.findViewById(R.id.progressBar);
         }
 
         @Override
@@ -134,16 +134,16 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             .listener(new RequestListener<String, GlideDrawable>() {
                 @Override
                 public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
                     return false;
                 }
 
                 @Override
                 public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                    progressBar.setVisibility(View.GONE);
+                    //progressBar.setVisibility(View.GONE);
                     return false;
                 }
-            }).override(400,400).crossFade().centerCrop().into(holder.thumbnail);
+            }).override(200,200).crossFade().centerCrop().into(holder.thumbnail);
         }
         //holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
