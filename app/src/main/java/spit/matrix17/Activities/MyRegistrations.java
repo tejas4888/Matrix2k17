@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import spit.matrix17.HelperClasses.Event;
 import spit.matrix17.HelperClasses.RecyclerItemClickListener;
@@ -169,6 +170,7 @@ public class MyRegistrations extends AppCompatActivity {
     }
 
     public void updateUI(){
+        Collections.reverse(mRegistration);
         mRegAdapter = new RegistrationAdapter(mRegistration,MyRegistrations.this);
         mRecyclerView.setAdapter(mRegAdapter);
         mRecyclerView.scrollToPosition(0);
