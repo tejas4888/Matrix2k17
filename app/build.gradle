@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'key0'
-            keyPassword 'matrix17@777'
-            storePassword 'matrix17@777'
-            storeFile file('D:/Projects/Android/matrix.jks')
-        }
-    }
     compileSdkVersion 26
     buildToolsVersion '26.0.1'
     defaultConfig {
