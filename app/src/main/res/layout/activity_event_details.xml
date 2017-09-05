@@ -17,6 +17,8 @@
             android:id="@+id/collapsingToolbar_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:contentScrim="@color/colorPrimary"
+            android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true">
 

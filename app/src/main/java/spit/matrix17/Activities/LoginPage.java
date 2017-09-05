@@ -192,7 +192,7 @@ public class LoginPage extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     String x = (String) snapshot.child("email").getValue();
                     if(email.equals(x)){
-                        Toast.makeText(LoginPage.this,"Already!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this,"Welcome back!",Toast.LENGTH_SHORT).show();
                         String y = (String) snapshot.child("from").getValue();
                         sp.putString("from",y);
                         sp.commit();

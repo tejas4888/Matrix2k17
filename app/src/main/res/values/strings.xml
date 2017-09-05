@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MATRIX</string>
 
-    <string name="playstore_link">https://play.google.com/store/apps/details?id=spit.matrix2017</string>
-    <string name="github_link">https://github.com/TejasBhitle/Matrix2017</string>
+    <string name="playstore_link">https://play.google.com/store/apps/details?id=spit.matrix17</string>
+    <string name="github_link">https://github.com/tejas4888/Matrix2k17</string>
 
     <string name="visit_website">Visit website</string>
     <string name="matrix_website">http://www.matrixthefest.in</string>

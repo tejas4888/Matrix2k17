@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Registrations"
+        android:layout_gravity="center_horizontal"
         android:textSize="24sp"
-        android:layout_marginLeft="100dp"/>
+        android:layout_marginTop="?attr/actionBarSize"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
