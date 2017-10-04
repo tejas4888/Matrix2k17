@@ -34,9 +34,10 @@
                 android:layout_marginTop="10dp"
                 android:text="Name"
                 android:textAlignment="center"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/colorAlternate"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
         </LinearLayout>
 
     </LinearLayout>

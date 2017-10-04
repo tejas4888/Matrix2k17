@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spit.matrix17.Activities.RegConfirm">
+    tools:context="spit.vortex17.Activities.RegConfirm">
 
     <TextView
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register for the Event:"
+        android:text="Thank you for your interest in:"
         android:id="@+id/registerforeventtext"
         android:textSize="24dp"
         android:textColor="@color/colorPrimary"
@@ -27,13 +27,25 @@
         android:layout_below="@+id/registerforeventtext"
         android:layout_centerInParent="true"/>
 
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please click on confirm to pay for this event."
+        android:textSize="24dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/registerforevent_eventname"
+        android:gravity="center_horizontal"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Confirm"
         android:id="@+id/regButton"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/card_background"/>
+        android:background="@color/colorAlternate"
+        android:textColor="@color/colorAccent"/>
 
 </RelativeLayout>

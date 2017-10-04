@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#80252A</color>
-    <color name="colorPrimaryDark">#80252A</color>
-    <color name="colorAccent">#9D9E9E</color>
+    <color name="colorPrimary">#B71C1C</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#FFD600</color>
+    <color name="colorAlternate">#283593</color>
 
     <color name="white">#FFFFFF</color>
     <color name="linkedIn_blue">#0077B5</color>

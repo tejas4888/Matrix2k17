@@ -4,33 +4,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <!--<item
+    <item
         android:id="@+id/menu_visit_website"
-        android:title=" "
-        app:showAsAction="always" /> -->
+        android:title="Website "
+        app:showAsAction="never"
+        android:icon="@drawable/svg_app_copyright_24px"/>
 
     <item
         android:id="@+id/menu_follow_facebook"
         android:icon="@drawable/svg_logo_facebook"
-        android:title=""
-        app:showAsAction="always"/>
-    <!--
+        android:title="Facebok"
+        app:showAsAction="never"/>
+
     <item
         android:id="@+id/menu_follow_twitter"
         android:icon="@drawable/svg_logo_twitter"
         android:title="@string/follow_twitter" />
-        -->
+
     <item
         android:id="@+id/menu_follow_instagram"
         android:icon="@drawable/svg_logo_instagram"
-        app:showAsAction="always"
-        android:title=""/>
+        app:showAsAction="never"
+        android:title="Instagram"/>
 
 
+    <!--
     <item
         android:id="@+id/menu_follow_snapchat"
         android:icon="@drawable/svg_logo_snapchat"
         app:showAsAction="always"
         android:title=""/>
+
+        -->
 
 </menu>

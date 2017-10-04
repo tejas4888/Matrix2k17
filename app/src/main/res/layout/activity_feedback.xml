@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spit.matrix17.Activities.GiveFeedback"
+    tools:context="spit.vortex17.Activities.GiveFeedback"
     android:orientation="vertical">
 
     <TextView
@@ -35,6 +35,8 @@
         android:text="Go On"
         android:layout_gravity="bottom"
         android:layout_marginBottom="20dp"
-        android:id="@+id/rateConfirm"/>
+        android:id="@+id/rateConfirm"
+        android:background="@color/colorAlternate"
+        android:textColor="@color/colorAccent"/>
 
 </LinearLayout>

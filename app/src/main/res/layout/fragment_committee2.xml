@@ -2,7 +2,8 @@
 
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -11,119 +12,942 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mcp"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rushabh Shah"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secretary"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919757365435/+918169005117"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="vortexsecretary.ta@ug.ictmumbai.edu.in"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mvcp"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Varun Sundarkumar"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secretary"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919619403730"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="vortexsecretary.ta@ug.ictmumbai.edu.in"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mtech"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abhijeet Muley"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PG Secretary"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919890240747"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="vortexsecretary.ta@ug.ictmumbai.edu.in"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mhoes"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nihar Dighe"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overall Event Head – Prodigy/General"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+918369583414"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="oeh.proigygeneral.vortex@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mcreative"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shweta Jogi"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overall Event Head – Pharma"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919920629609"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="oeh.pharma.vortex@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/madmin"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ankit Dhelriya"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Treasurer"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919422426601"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="treasurervortex2017@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/msecurity"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aditya Baser"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publicity/Outreach Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919029961750"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="pr.vortexict@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/mhop"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apurva Gomase"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publicity/Outreach Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+917588119812"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="pr.vortexict@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:id="@+id/council"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akshay Shah"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marketing and Partnerships Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919769792015"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="spons.vortex@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anay Navandar"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marketing and Partnerships Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+918275797828/+917977565476"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="spons.vortex@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sarvesh Sarda"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Production Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919130340409"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="vortexrnl@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Omkar Parkhi"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Production Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+917588284828"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="vortexrnl@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viraj Modak"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hospitality Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919930798809"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="hospi.vortexict2017@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anvita Ramteke"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hospitality Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+918108262373"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="hospi.vortexict2017@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rahul Pandare"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Design Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAccent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+917738550781"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="design.vortexict@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tejal Varekar"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Creatives’ Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919594035088"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="creatives.vortexict2017@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sagar Lakhwani"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technical Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+919403950162"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="tech.vortexict@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Claudia Samuel"
+                android:textSize="24sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Library and IPC Head"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorAlternate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="+918108803867"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="libipc.vortex2017@gmail.com"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:enabled="true"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
 
 
 

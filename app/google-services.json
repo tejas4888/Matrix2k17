@@ -83,19 +83,55 @@
           }
         },
         {
-          "client_id": "1097612880469-162svf91mjd60d8802rvl99tptj68hgt.apps.googleusercontent.com",
+          "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQwTkK6uUmtLhfURPOc8Z5dRrcP3IP8VU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097612880469:android:542c124e91f78122",
+        "android_client_info": {
+          "package_name": "spit.vortex17"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097612880469-m8pcoavaur7nghgum7umpgdg1kqho71m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "spit.matrix17",
+            "package_name": "spit.vortex17",
             "certificate_hash": "0d1aa60f0edaf574ec22e1ff407e233b65699df0"
           }
         },
         {
-          "client_id": "1097612880469-71kjjbfsthrklr41l16sfrnh4tfri9f5.apps.googleusercontent.com",
+          "client_id": "1097612880469-oibtr2h34d1sdv38mu5ro7hp7te2tkfg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "spit.matrix17",
-            "certificate_hash": "0e861b3aef62f8144834f185d1d1c5245e17cf4b"
+            "package_name": "spit.vortex17",
+            "certificate_hash": "aaeba33568a977228a614531d45cc175a7112016"
           }
         },
         {

@@ -7,7 +7,7 @@
     android:paddingEnd="@dimen/activity_vertical_margin"
     android:paddingStart="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="spit.matrix17.Activities.EventDetails"
+    tools:context="spit.vortex17.Activities.EventDetails"
     tools:showIn="@layout/activity_event_details">
 
     <ScrollView
@@ -40,7 +40,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginStart="8dp"
                         android:text="@string/description"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAlternate"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <android.support.v7.widget.AppCompatTextView
@@ -75,7 +75,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginStart="8dp"
                         android:text="@string/venue_time"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <android.support.v7.widget.AppCompatTextView
@@ -116,7 +116,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:text="@string/registration"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAlternate"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <android.support.v7.widget.AppCompatTextView
@@ -150,7 +150,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:text="@string/prizes"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -184,7 +184,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:text="@string/organizers"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAlternate"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <!--CONTACT ONE-->
@@ -271,20 +271,20 @@
                     android:orientation="vertical"
                     android:padding="4dp">
 
-                    <android.support.v7.widget.AppCompatButton
+                    <!--<android.support.v7.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="register"
-                        android:background="@color/tw__composer_light_gray"
+                        android:background="@color/colorAccent"
                         android:text="Register"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary" />-->
 
                     <android.support.v7.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="feedback"
                         android:text="Feedback?"
-                        android:background="@color/tw__composer_light_gray"
+                        android:background="@color/colorAccent"
                         android:textColor="@color/colorPrimary"
                         android:layout_marginTop="10dp"/>
 

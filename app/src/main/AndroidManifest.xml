@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="spit.matrix17">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="spit.vortex17">
 
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,7 +15,7 @@
         android:hardwareAccelerated="false"
         android:largeHeap="true">
         <service
-            android:name="spit.matrix17.HelperClasses.MyFirebaseMessagingService">
+            android:name="spit.vortex17.HelperClasses.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
@@ -26,7 +27,7 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimaryDark" />
 
-        <service android:name="spit.matrix17.HelperClasses.MyFirebaseInstanceIDService">
+        <service android:name="spit.vortex17.HelperClasses.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -41,7 +42,7 @@
         -->
 
         <activity
-            android:name="spit.matrix17.Activities.MainActivity"
+            android:name="spit.vortex17.Activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -51,41 +52,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="spit.matrix17.Activities.EventDetails"
+            android:name="spit.vortex17.Activities.EventDetails"
             android:label="@string/title_activity_event_details"
-            android:parentActivityName="spit.matrix17.Activities.MainActivity"
+            android:parentActivityName="spit.vortex17.Activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="spit.matrix17.Activities.MainActivity" />
+                android:value="spit.vortex17.Activities.MainActivity" />
         </activity>
         <activity
-            android:name="spit.matrix17.Activities.LoginPage"
+            android:name="spit.vortex17.Activities.LoginPage"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="spit.matrix17.Activities.AddEvent"
+            android:name="spit.vortex17.Activities.AddEvent"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="spit.matrix17.Activities.RegConfirm"
+            android:name="spit.vortex17.Activities.RegConfirm"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="spit.matrix17.Activities.GiveFeedback"
+            android:name="spit.vortex17.Activities.GiveFeedback"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="spit.matrix17.Activities.AddEvent2"
+            android:name="spit.vortex17.Activities.AddEvent2"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="spit.matrix17.Activities.MyRegistrations"
+            android:name="spit.vortex17.Activities.MyRegistrations"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="spit.matrix17.Activities.EditEvent"
+            android:name="spit.vortex17.Activities.EditEvent"
             android:label="@string/title_activity_edit_event"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="spit.matrix17.Activities.SignInVideo"
+            android:name="spit.vortex17.Activities.SignInVideo"
             android:theme="@style/AppTheme"></activity>
     </application>
 

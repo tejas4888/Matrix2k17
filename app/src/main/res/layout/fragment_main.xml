@@ -21,9 +21,9 @@
                 android:id="@+id/main_fragment_tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabMode="scrollable"
                 app:tabGravity="fill"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+                app:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:tabTextColor="@color/colorAccent"/>
 
         </android.support.design.widget.AppBarLayout>
 
@@ -38,6 +38,7 @@
                 android:id="@+id/fragment_viewPager_tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+
 
         </RelativeLayout>
 

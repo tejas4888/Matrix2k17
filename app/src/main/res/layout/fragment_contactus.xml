@@ -23,14 +23,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/spit" />
+                    android:src="@drawable/ict" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/college_address"
+                    android:text="Institute of Chemical Technology,Nathalal Parekh Marg, Near Khalsa College, Matunga, Mumbai, Maharashtra 400019"
                     android:textSize="17sp"
                     android:textIsSelectable="true"
-                    android:padding="15dp"/>
+                    android:padding="15dp"
+                    android:textColor="@color/colorAlternate"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,6 +42,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Website"
+                        android:textColor="@color/colorAccent"
                         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>
                     <Button
                         android:id="@+id/findOnMap"
@@ -48,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Find On Map"
+                        android:textColor="@color/colorAccent"
                         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>
                 </LinearLayout>
             </LinearLayout>
@@ -82,14 +85,14 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textStyle="bold"
-                            android:text="Phone"/>
+                            android:text="Nihar Dighe"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/contact_num_one"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="022 2670 7440"/>
+                            android:text="+918369583414"/>
                     </LinearLayout>
 
                     <android.support.v7.widget.AppCompatImageButton
@@ -129,14 +132,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Office"/>
+                            android:text="Ankit Dhelriya"/>
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/contact_num_two"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="022 2670 8520"/>
+                            android:text="+919422426601"/>
 
                     </LinearLayout>
 
@@ -171,14 +174,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textStyle="bold"
-                        android:text="Email:"/>
+                        android:text="Email:"
+                        android:textColor="@color/colorAlternate"/>
                     <TextView
                         android:id="@+id/emailId_matrix_TextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:textColor="@color/colorAccent"
-                        android:text="principal@spit.ac.in"/>
+                        android:text="pr.vortexict@gmail.com"/>
                 </LinearLayout>
             </LinearLayout>
 
