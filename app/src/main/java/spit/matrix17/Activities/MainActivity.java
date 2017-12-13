@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     private ValueEventListener mValueEventListener;
     private DatabaseReference mPushDatabaseReference;
 
-    public int valid=0;
+    public static int valid=0;
     TextView navDrawerUsername,navDrawerUseremailid;
     private static final String TAG = "MainActivity";
 
@@ -178,9 +178,11 @@ public class MainActivity extends AppCompatActivity {
 
                     sp.commit();
 
-                    Intent mapsActivity= new Intent(MainActivity.this,MapsActivity.class);
-                    startActivity(mapsActivity);
-
+                    if(valid==0) {
+                        Intent mapsActivity = new Intent(MainActivity.this, MapsActivity.class);
+                        startActivity(mapsActivity);
+                        valid=1;
+                    }
                     Email = user.getEmail();
 
 
