@@ -1,111 +1,35 @@
 {
   "project_info": {
-    "project_number": "1097612880469",
-    "firebase_url": "https://matrix2k17-a4684.firebaseio.com",
-    "project_id": "matrix2k17-a4684",
-    "storage_bucket": "matrix2k17-a4684.appspot.com"
+    "project_number": "1082270670276",
+    "firebase_url": "https://udaan-5877c.firebaseio.com",
+    "project_id": "udaan-5877c",
+    "storage_bucket": "udaan-5877c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1097612880469:android:b57bcaf4e727ecde",
-        "android_client_info": {
-          "package_name": "spit.matrix2017"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1097612880469-pjs2aurl4fa1piag2vv9vvcgcn60p8mm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "spit.matrix2017",
-            "certificate_hash": "9df023707dd7f49521f3eef6bf48a944d84e3c63"
-          }
-        },
-        {
-          "client_id": "1097612880469-s24ghmeg4mskqjuarefldet56das963a.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "spit.matrix2017",
-            "certificate_hash": "0d1aa60f0edaf574ec22e1ff407e233b65699df0"
-          }
-        },
-        {
-          "client_id": "1097612880469-eju4al7dpjas9t3hlaseg4u5uojms5be.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "spit.matrix2017",
-            "certificate_hash": "0e861b3aef62f8144834f185d1d1c5245e17cf4b"
-          }
-        },
-        {
-          "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAQwTkK6uUmtLhfURPOc8Z5dRrcP3IP8VU"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1097612880469:android:def7f40e1d54e78e",
+        "mobilesdk_app_id": "1:1082270670276:android:def7f40e1d54e78e",
         "android_client_info": {
           "package_name": "spit.matrix17"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1097612880469-2mf3u8jtojb2tfc1o0e3f5vn0lm45ocv.apps.googleusercontent.com",
+          "client_id": "1082270670276-c44jq3t3p4b1rankkc3chij1a4qd4f7f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "spit.matrix17",
-            "certificate_hash": "aaeba33568a977228a614531d45cc175a7112016"
+            "certificate_hash": "55cc8f6a33d48df5d265e69e23daf137cbc5db0b"
           }
         },
         {
-          "client_id": "1097612880469-162svf91mjd60d8802rvl99tptj68hgt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "spit.matrix17",
-            "certificate_hash": "0d1aa60f0edaf574ec22e1ff407e233b65699df0"
-          }
-        },
-        {
-          "client_id": "1097612880469-71kjjbfsthrklr41l16sfrnh4tfri9f5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "spit.matrix17",
-            "certificate_hash": "0e861b3aef62f8144834f185d1d1c5245e17cf4b"
-          }
-        },
-        {
-          "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
+          "client_id": "1082270670276-8dqqaer739p28o66cc7hd5p2k06r5hek.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQwTkK6uUmtLhfURPOc8Z5dRrcP3IP8VU"
+          "current_key": "AIzaSyCBxPjCOcawl-CD-gsgzSgETxq44VQhQmg"
         }
       ],
       "services": {
@@ -116,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1097612880469-p8m9cjqfgdg622jgnj083hlgsb6mam4m.apps.googleusercontent.com",
+              "client_id": "1082270670276-8dqqaer739p28o66cc7hd5p2k06r5hek.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

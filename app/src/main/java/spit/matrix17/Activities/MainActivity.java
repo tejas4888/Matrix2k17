@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -36,7 +37,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     private ValueEventListener mValueEventListener;
     private DatabaseReference mPushDatabaseReference;
 
+    public int valid=0;
     TextView navDrawerUsername,navDrawerUseremailid;
     private static final String TAG = "MainActivity";
 
@@ -166,9 +167,6 @@ public class MainActivity extends AppCompatActivity {
                 user = firebaseAuth.getCurrentUser();
                 if (user != null) {
 
-
-
-
                     // Code to save userdata
                     Log.v("Userdetails",user.getDisplayName()+" "+user.getEmail());
                     sp.putString("name",user.getDisplayName());
@@ -177,7 +175,11 @@ public class MainActivity extends AppCompatActivity {
                     sp.putString("UID",user.getUid());
                     navDrawerUsername.setText((String)user.getDisplayName());
                     navDrawerUseremailid.setText((String)user.getEmail());
+
                     sp.commit();
+
+                    Intent mapsActivity= new Intent(MainActivity.this,MapsActivity.class);
+                    startActivity(mapsActivity);
 
                     Email = user.getEmail();
 
