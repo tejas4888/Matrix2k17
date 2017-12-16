@@ -75,9 +75,9 @@ public class LoginPage extends AppCompatActivity {
 
         eventOrg = new ArrayList();
         //eventOrg.add("aditya.bhave41@gmail.com");
-        eventOrg.add("techrace2k17@gmail.com");
-        eventOrg.add("virtualplacementm17@gmail.com");
-        eventOrg.add("zorbing.matrix@gmail.com");
+        eventOrg.add("gujarshlok@gmail.com");
+        eventOrg.add("madhugore1@gmail.com");
+        eventOrg.add("tejas4888@gmail.com");
         eventOrg.add("lineseguidor@gmail.com");
         eventOrg.add("spitlanmafia.2017@gmail.com");
         eventOrg.add("matrixvsm17@gmail.com");
